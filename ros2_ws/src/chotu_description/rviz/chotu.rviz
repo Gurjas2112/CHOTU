@@ -1,0 +1,46 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Global Options:
+    Fixed Frame: odom
+    Background Color: 12; 16; 24
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Cell Size: 0.25
+      Plane Cell Count: 16
+    - Class: rviz_default_plugins/Map
+      Name: CHOTU map
+      Topic:
+        Value: /map
+      Color Scheme: costmap
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Description Topic:
+        Value: /robot_description
+    - Class: rviz_default_plugins/Path
+      Name: Plan
+      Topic:
+        Value: /chotu/plan
+      Color: 255; 190; 0
+    - Class: rviz_default_plugins/Range
+      Name: US centre
+      Topic:
+        Value: /range/center
+    - Class: rviz_default_plugins/Range
+      Name: US left
+      Topic:
+        Value: /range/left
+    - Class: rviz_default_plugins/Range
+      Name: US right
+      Topic:
+        Value: /range/right
+    - Class: rviz_default_plugins/TF
+      Name: TF
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Scale: 180
+      X: 1.5
+      Y: 1.5

@@ -1,0 +1,22 @@
+{
+  "name": "CHOTU ROS 2 Humble (dev)",
+  "build": {
+    "context": "..",
+    "dockerfile": "../docker/Dockerfile",
+    "target": "dev",
+    "args": { "ROS_DISTRO": "humble" }
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "runArgs": ["--network=host", "--ipc=host", "--gpus=all",
+              "-e", "DISPLAY=${localEnv:DISPLAY}",
+              "-v", "/tmp/.X11-unix:/tmp/.X11-unix"],
+  "containerEnv": { "ROS_DOMAIN_ID": "42", "RMW_IMPLEMENTATION": "rmw_cyclonedds_cpp" },
+  "postCreateCommand": "cd ros2_ws && rosdep update && colcon build --symlink-install",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-vscode.cpptools", "ms-iot.vscode-ros",
+                     "platformio.platformio-ide", "redhat.vscode-xml"]
+    }
+  }
+}

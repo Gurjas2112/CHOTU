@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python-autonomy-and-simulation:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt opencv-python-headless && pip install -e .
+      - run: python -m pytest tests -q
+      - run: python bot_simulation/run_simulation.py --benchmark 10 --headless --seed 0 --json benchmark.json
+      - uses: actions/upload-artifact@v4
+        with: { name: benchmark, path: benchmark.json }
+
+  firmware:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Host unit tests (g++)
+        run: make -C firmware/esp32s3_base_controller/test_host
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: PlatformIO build (ESP32-S3)
+        run: |
+          pip install platformio
+          pio run -d firmware/esp32s3_base_controller -e esp32s3
+
+  ros2-humble:
+    runs-on: ubuntu-22.04
+    container: ros:humble-ros-base
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        shell: bash
+        run: |
+          apt-get update && apt-get install -y python3-pip python3-pytest
+          pip3 install -e .
+          rosdep update && rosdep install --from-paths ros2_ws/src --ignore-src -y
+      - name: colcon build + test
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          cd ros2_ws
+          colcon build
+          colcon test --packages-select chotu_base
+          colcon test-result --verbose

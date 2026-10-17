@@ -1,0 +1,312 @@
+{
+  "single_run": {
+    "result": {
+      "seed": 2025,
+      "docked": true,
+      "elapsed_s": 281.9,
+      "coverage": 0.7135,
+      "collisions": 0,
+      "cable_incidents": 0,
+      "recoveries": 5,
+      "replans": 168,
+      "energy_wh": 3.367,
+      "avg_power_w": 42.99,
+      "eco_energy_saving_pct": 14.2,
+      "efficiency_by_type": {
+        "dust": 0.804,
+        "hair": 0.857,
+        "paper": 0.7,
+        "wrapper": 0.5,
+        "wire_strand": 0.556
+      },
+      "collected_g": {
+        "dust": 18.5,
+        "hair": 2.4,
+        "paper": 7.0,
+        "wrapper": 6.0,
+        "wire_strand": 4.0
+      },
+      "spawned_g": {
+        "dust": 23.0,
+        "hair": 2.8,
+        "paper": 10.0,
+        "wrapper": 12.0,
+        "wire_strand": 7.2
+      },
+      "final_dock_error_m": 0.029,
+      "score": {
+        "parts": {
+          "completion_time": 12.48,
+          "efficiency": 17.09,
+          "autonomy": 20.0,
+          "battery": 15.0,
+          "aesthetics": 4.0,
+          "container": 9.0,
+          "cost": 1.76
+        },
+        "total": 79.3
+      }
+    },
+    "screenshots": [
+      "01_mission_start_docked.png",
+      "02_undocking.png",
+      "03_mapping_scan_360.png",
+      "04_adaptive_suction_boost.png",
+      "05_boustrophedon_coverage.png",
+      "06_obstacle_avoidance_reactive.png",
+      "07_ai_vision_cable_keepout.png",
+      "08_spot_clean_frontier_fill.png",
+      "09_coverage_progress_150s.png",
+      "10_stuck_recovery.png",
+      "11_return_to_dock_astar.png",
+      "12_ir_beacon_docking.png",
+      "13_mission_report.png"
+    ],
+    "state_entry_times": {
+      "UNDOCK": 0.0,
+      "SCAN": 2.6499999999999986,
+      "COVER": 7.299999999999982,
+      "SPOT_CLEAN": 142.99999999999827,
+      "STUCK_RECOVERY": 156.7500000000014,
+      "RETURN_TO_DOCK": 264.85000000002594,
+      "DOCKING": 276.30000000002855,
+      "DOCKED": 281.9000000000298
+    }
+  },
+  "fleet": {
+    "rooms": [
+      {
+        "seed": 2125,
+        "docked": true,
+        "elapsed_s": 281.3,
+        "coverage": 0.6985,
+        "collisions": 4,
+        "cable_incidents": 0,
+        "recoveries": 9,
+        "replans": 1215,
+        "energy_wh": 3.402,
+        "avg_power_w": 43.53,
+        "eco_energy_saving_pct": 12.7,
+        "efficiency_by_type": {
+          "dust": 0.609,
+          "hair": 0.571,
+          "paper": 0.7,
+          "wrapper": 0.5,
+          "wire_strand": 0.778
+        },
+        "collected_g": {
+          "dust": 14.0,
+          "hair": 1.6,
+          "paper": 7.0,
+          "wrapper": 6.0,
+          "wire_strand": 5.6
+        },
+        "spawned_g": {
+          "dust": 23.0,
+          "hair": 2.8,
+          "paper": 10.0,
+          "wrapper": 12.0,
+          "wire_strand": 7.2
+        },
+        "final_dock_error_m": 0.027,
+        "score": {
+          "parts": {
+            "completion_time": 12.5,
+            "efficiency": 15.79,
+            "autonomy": 13.6,
+            "battery": 15.0,
+            "aesthetics": 4.0,
+            "container": 9.0,
+            "cost": 1.76
+          },
+          "total": 71.7
+        }
+      },
+      {
+        "seed": 2126,
+        "docked": true,
+        "elapsed_s": 281.5,
+        "coverage": 0.6916,
+        "collisions": 1,
+        "cable_incidents": 0,
+        "recoveries": 7,
+        "replans": 161,
+        "energy_wh": 3.421,
+        "avg_power_w": 43.75,
+        "eco_energy_saving_pct": 12.3,
+        "efficiency_by_type": {
+          "dust": 0.609,
+          "hair": 0.643,
+          "paper": 0.8,
+          "wrapper": 0.333,
+          "wire_strand": 0.556
+        },
+        "collected_g": {
+          "dust": 14.0,
+          "hair": 1.8,
+          "paper": 8.0,
+          "wrapper": 4.0,
+          "wire_strand": 4.0
+        },
+        "spawned_g": {
+          "dust": 23.0,
+          "hair": 2.8,
+          "paper": 10.0,
+          "wrapper": 12.0,
+          "wire_strand": 7.2
+        },
+        "final_dock_error_m": 0.028,
+        "score": {
+          "parts": {
+            "completion_time": 12.49,
+            "efficiency": 14.7,
+            "autonomy": 18.4,
+            "battery": 15.0,
+            "aesthetics": 4.0,
+            "container": 9.0,
+            "cost": 1.76
+          },
+          "total": 75.3
+        }
+      },
+      {
+        "seed": 2127,
+        "docked": true,
+        "elapsed_s": 284.1,
+        "coverage": 0.717,
+        "collisions": 0,
+        "cable_incidents": 0,
+        "recoveries": 5,
+        "replans": 170,
+        "energy_wh": 3.437,
+        "avg_power_w": 43.54,
+        "eco_energy_saving_pct": 13.5,
+        "efficiency_by_type": {
+          "dust": 0.848,
+          "hair": 0.786,
+          "paper": 0.8,
+          "wrapper": 0.333,
+          "wire_strand": 0.556
+        },
+        "collected_g": {
+          "dust": 19.5,
+          "hair": 2.2,
+          "paper": 8.0,
+          "wrapper": 4.0,
+          "wire_strand": 4.0
+        },
+        "spawned_g": {
+          "dust": 23.0,
+          "hair": 2.8,
+          "paper": 10.0,
+          "wrapper": 12.0,
+          "wire_strand": 7.2
+        },
+        "final_dock_error_m": 0.027,
+        "score": {
+          "parts": {
+            "completion_time": 12.42,
+            "efficiency": 16.61,
+            "autonomy": 20.0,
+            "battery": 15.0,
+            "aesthetics": 4.0,
+            "container": 9.0,
+            "cost": 1.76
+          },
+          "total": 78.8
+        }
+      },
+      {
+        "seed": 2128,
+        "docked": true,
+        "elapsed_s": 284.8,
+        "coverage": 0.7607,
+        "collisions": 1,
+        "cable_incidents": 0,
+        "recoveries": 0,
+        "replans": 157,
+        "energy_wh": 3.346,
+        "avg_power_w": 42.29,
+        "eco_energy_saving_pct": 16.6,
+        "efficiency_by_type": {
+          "dust": 0.87,
+          "hair": 0.857,
+          "paper": 0.6,
+          "wrapper": 0.667,
+          "wire_strand": 0.778
+        },
+        "collected_g": {
+          "dust": 20.0,
+          "hair": 2.4,
+          "paper": 6.0,
+          "wrapper": 8.0,
+          "wire_strand": 5.6
+        },
+        "spawned_g": {
+          "dust": 23.0,
+          "hair": 2.8,
+          "paper": 10.0,
+          "wrapper": 12.0,
+          "wire_strand": 7.2
+        },
+        "final_dock_error_m": 0.028,
+        "score": {
+          "parts": {
+            "completion_time": 12.41,
+            "efficiency": 18.86,
+            "autonomy": 18.4,
+            "battery": 15.0,
+            "aesthetics": 4.0,
+            "container": 9.0,
+            "cost": 1.76
+          },
+          "total": 79.4
+        }
+      }
+    ]
+  },
+  "benchmark": {
+    "vision_on": {
+      "dock_success_rate": 1.0,
+      "mean_coverage": 0.7349,
+      "mean_time_s": 284.1,
+      "mean_score": 78.8,
+      "total_collisions": 10,
+      "total_cable_incidents": 1,
+      "mean_efficiency_by_type": {
+        "dust": 0.802,
+        "hair": 0.729,
+        "paper": 0.74,
+        "wrapper": 0.683,
+        "wire_strand": 0.745
+      }
+    },
+    "vision_off": {
+      "dock_success_rate": 1.0,
+      "mean_coverage": 0.7919,
+      "mean_time_s": 245.9,
+      "mean_score": 63.9,
+      "total_collisions": 10,
+      "total_cable_incidents": 38,
+      "mean_efficiency_by_type": {
+        "dust": 0.654,
+        "hair": 0.579,
+        "paper": 0.55,
+        "wrapper": 0.45,
+        "wire_strand": 0.5
+      }
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

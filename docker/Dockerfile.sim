@@ -1,0 +1,17 @@
+# Lightweight digital-twin image (no ROS): runs bot_simulation headless -
+# used by CI and for large randomised-room benchmarks / fleet runs in the cloud.
+#   docker build -f docker/Dockerfile.sim -t chotu/twin:2.0.0 .
+#   docker run --rm chotu/twin:2.0.0 python bot_simulation/run_simulation.py --benchmark 50 --headless
+FROM python:3.12-slim
+ENV PYTHONUNBUFFERED=1
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt opencv-python-headless
+COPY pyproject.toml README.md ./
+COPY chotu_core ./chotu_core
+COPY bot_simulation ./bot_simulation
+COPY tests ./tests
+RUN useradd -m twin && chown -R twin /app
+USER twin
+CMD ["python", "-m", "pytest", "tests", "-q"]

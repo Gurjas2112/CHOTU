@@ -1,0 +1,12 @@
+.git
+essential_docs
+bot_simulation/simulation_screenshot_screen_recording/*.mp4
+**/__pycache__
+ros2_ws/build
+ros2_ws/install
+ros2_ws/log
+.pio
+firmware/**/.pio
+runs
+datasets
+.venv

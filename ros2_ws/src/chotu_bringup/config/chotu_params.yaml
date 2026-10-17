@@ -1,0 +1,28 @@
+# CHOTU runtime parameters (robot + simulation). Values mirror chotu_core/config.py.
+chotu_serial_bridge:
+  ros__parameters:
+    port: /dev/ttyUSB0          # ESP32-S3 DevKitC-1 UART port (CP2102/CH343); /dev/ttyACM0 for native USB
+    baud: 115200
+    heartbeat_hz: 10.0
+    odom_frame: odom
+    base_frame: base_footprint
+
+chotu_mission_manager:
+  ros__parameters:
+    auto_start: false           # true = start as soon as sensors are up (competition mode)
+    time_budget_s: 300.0        # AtomQuest: 5 minute session
+    room_width_m: 3.048         # 10 ft (known in advance per Round 3 rules)
+    room_height_m: 3.048
+    dock_x: 1.524
+    dock_y: 0.19
+    lane_spacing: 0.22
+    max_linear: 0.25
+
+chotu_yolo_detector:
+  ros__parameters:
+    weights: /opt/chotu/models/chotu_suck_avoid_yolov8n.pt
+    device: cpu                 # "0" on the RTX 3060 workstation
+    imgsz: 320
+    conf: 0.35
+    max_fps: 5.0
+    publish_annotated: false

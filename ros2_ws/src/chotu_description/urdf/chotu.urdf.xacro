@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!--
+  CHOTU - Compact Home Operations & Tidying Unit
+  Round MDF chassis (Ø 34 cm, 22 cm tall), 2 x BO drive wheels + front caster,
+  3 x HC-SR04, VL53L0X ToF, MPU6050, Pi camera.  Dimensions mirror chotu_core/config.py
+  and stay inside the AtomQuest 1.5 ft x 1.5 ft x 1 ft envelope.
+  Gazebo tags target Ignition/Gazebo Fortress (ros_gz default for ROS 2 Humble).
+-->
+<robot name="chotu" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="chassis_radius" value="0.17"/>
+  <xacro:property name="chassis_height" value="0.08"/>
+  <xacro:property name="body_height" value="0.22"/>
+  <xacro:property name="wheel_radius" value="0.0325"/>
+  <xacro:property name="wheel_width" value="0.026"/>
+  <xacro:property name="wheel_sep" value="0.26"/>
+  <xacro:property name="mass" value="2.4"/>
+
+  <xacro:macro name="cyl_inertia" params="m r h">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${m*(3*r*r+h*h)/12}" ixy="0" ixz="0" iyy="${m*(3*r*r+h*h)/12}" iyz="0" izz="${m*r*r/2}"/>
+    </inertial>
+  </xacro:macro>
+
+  <link name="base_footprint"/>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 ${chassis_height/2}"/>
+      <geometry><cylinder radius="${chassis_radius}" length="${chassis_height}"/></geometry>
+      <material name="mdf"><color rgba="0.25 0.32 0.30 1"/></material>
+    </visual>
+    <visual>
+      <!-- transparent 470 mL dust container + vacuum tower -->
+      <origin xyz="-0.02 0 ${chassis_height + 0.07}"/>
+      <geometry><box size="0.14 0.14 0.14"/></geometry>
+      <material name="acrylic"><color rgba="0.8 0.9 1.0 0.5"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${body_height/2}"/>
+      <geometry><cylinder radius="${chassis_radius}" length="${body_height}"/></geometry>
+    </collision>
+    <xacro:cyl_inertia m="${mass}" r="${chassis_radius}" h="${body_height}"/>
+  </link>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.012"/>
+  </joint>
+
+  <xacro:macro name="wheel" params="side y">
+    <link name="${side}_wheel">
+      <visual>
+        <origin rpy="${pi/2} 0 0"/>
+        <geometry><cylinder radius="${wheel_radius}" length="${wheel_width}"/></geometry>
+        <material name="tyre"><color rgba="0.05 0.05 0.05 1"/></material>
+      </visual>
+      <collision>
+        <origin rpy="${pi/2} 0 0"/>
+        <geometry><cylinder radius="${wheel_radius}" length="${wheel_width}"/></geometry>
+      </collision>
+      <xacro:cyl_inertia m="0.05" r="${wheel_radius}" h="${wheel_width}"/>
+    </link>
+    <joint name="${side}_wheel_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="${side}_wheel"/>
+      <origin xyz="0 ${y} ${wheel_radius - 0.012}"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+  <xacro:wheel side="left" y="${wheel_sep/2}"/>
+  <xacro:wheel side="right" y="${-wheel_sep/2}"/>
+
+  <link name="caster">
+    <visual><geometry><sphere radius="0.0105"/></geometry></visual>
+    <collision><geometry><sphere radius="0.0105"/></geometry></collision>
+    <xacro:cyl_inertia m="0.01" r="0.0105" h="0.021"/>
+  </link>
+  <joint name="caster_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="caster"/>
+    <origin xyz="0.12 0 -0.0015"/>
+  </joint>
+
+  <!-- range sensors on the rim, 6 cm above the floor -->
+  <xacro:macro name="range_sensor" params="name yaw">
+    <link name="${name}_link">
+      <visual><geometry><box size="0.02 0.045 0.02"/></geometry>
+        <material name="sensor"><color rgba="0.1 0.4 0.9 1"/></material></visual>
+    </link>
+    <joint name="${name}_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="${name}_link"/>
+      <origin xyz="${chassis_radius*cos(yaw)} ${chassis_radius*sin(yaw)} 0.05" rpy="0 0 ${yaw}"/>
+    </joint>
+    <gazebo reference="${name}_link">
+      <sensor name="${name}" type="gpu_lidar">
+        <topic>/gz/${name}</topic>
+        <update_rate>17</update_rate>
+        <lidar>
+          <scan>
+            <horizontal><samples>5</samples><min_angle>-0.13</min_angle><max_angle>0.13</max_angle></horizontal>
+          </scan>
+          <range><min>0.02</min><max>1.5</max><resolution>0.003</resolution></range>
+          <noise><type>gaussian</type><mean>0</mean><stddev>0.01</stddev></noise>
+        </lidar>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+  <xacro:range_sensor name="us_left" yaw="0.6109"/>
+  <xacro:range_sensor name="us_center" yaw="0.0"/>
+  <xacro:range_sensor name="us_right" yaw="-0.6109"/>
+
+  <link name="tof_link"/>
+  <joint name="tof_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="tof_link"/>
+    <origin xyz="${chassis_radius} 0 0.07"/>
+  </joint>
+  <gazebo reference="tof_link">
+    <sensor name="tof" type="gpu_lidar">
+      <topic>/gz/tof</topic>
+      <update_rate>30</update_rate>
+      <lidar>
+        <scan><horizontal><samples>1</samples><min_angle>0</min_angle><max_angle>0</max_angle></horizontal></scan>
+        <range><min>0.03</min><max>1.2</max><resolution>0.001</resolution></range>
+      </lidar>
+    </sensor>
+  </gazebo>
+
+  <link name="imu_link"/>
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.06"/>
+  </joint>
+  <gazebo reference="imu_link">
+    <sensor name="imu" type="imu">
+      <topic>/gz/imu</topic>
+      <update_rate>50</update_rate>
+    </sensor>
+  </gazebo>
+
+  <link name="camera_link">
+    <visual><geometry><box size="0.02 0.03 0.03"/></geometry></visual>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.15 0 0.16" rpy="0 0.489 0"/>   <!-- 28 deg down tilt -->
+  </joint>
+  <gazebo reference="camera_link">
+    <sensor name="camera" type="camera">
+      <topic>/camera/image_raw</topic>
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.082</horizontal_fov>
+        <image><width>640</width><height>480</height></image>
+        <clip><near>0.05</near><far>5</far></clip>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+      <wheel_separation>${wheel_sep}</wheel_separation>
+      <wheel_radius>${wheel_radius}</wheel_radius>
+      <max_linear_acceleration>0.6</max_linear_acceleration>
+      <topic>/cmd_vel</topic>
+      <odom_topic>/gz/odom</odom_topic>
+      <frame_id>gz_odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+    </plugin>
+    <plugin filename="ignition-gazebo-joint-state-publisher-system"
+            name="ignition::gazebo::systems::JointStatePublisher"/>
+  </gazebo>
+</robot>

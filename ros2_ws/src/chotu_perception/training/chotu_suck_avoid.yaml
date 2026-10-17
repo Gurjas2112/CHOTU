@@ -1,0 +1,15 @@
+# YOLO dataset definition for CHOTU's actionable classes (VLM-Vac style)
+path: datasets/chotu_suck_avoid
+train: images/train
+val: images/val
+names:
+  0: dust
+  1: hair
+  2: paper
+  3: wrapper
+  4: wire_strand
+  5: power_cable   # avoid
+  6: sock          # avoid
+  7: cloth         # avoid
+  8: liquid        # avoid
+  9: toy           # avoid

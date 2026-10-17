@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+  AtomQuest 2025 Grand Finale challenge room (10 ft x 10 ft) for Gazebo Fortress.
+  Obstacle *inventory* matches bot_simulation.world.generate_room():
+  2 boxes, 1 chair, 1 round bin, 1 power cable (low - invisible to the range
+  sensors, only the camera/YOLO sees it) and the docking station on the south wall.
+  World frame = room frame used by chotu_core (origin at the south-west corner).
+-->
+<sdf version="1.8">
+  <world name="atomquest_room">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.002</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <direction>-0.4 0.2 -0.9</direction>
+    </light>
+
+    <model name="floor">
+      <static>true</static>
+      <pose>1.524 1.524 0 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><plane><normal>0 0 1</normal><size>6 6</size></plane></geometry></collision>
+        <visual name="v"><geometry><plane><normal>0 0 1</normal><size>3.048 3.048</size></plane></geometry>
+          <material><ambient>0.75 0.72 0.66 1</ambient><diffuse>0.75 0.72 0.66 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- 4 walls, 2 cm thick, 40 cm high -->
+    <model name="walls">
+      <static>true</static>
+      <link name="south"><pose>1.524 0.01 0.2 0 0 0</pose>
+        <collision name="c"><geometry><box><size>3.048 0.02 0.4</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>3.048 0.02 0.4</size></box></geometry></visual></link>
+      <link name="north"><pose>1.524 3.038 0.2 0 0 0</pose>
+        <collision name="c"><geometry><box><size>3.048 0.02 0.4</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>3.048 0.02 0.4</size></box></geometry></visual></link>
+      <link name="west"><pose>0.01 1.524 0.2 0 0 0</pose>
+        <collision name="c"><geometry><box><size>0.02 3.048 0.4</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.02 3.048 0.4</size></box></geometry></visual></link>
+      <link name="east"><pose>3.038 1.524 0.2 0 0 0</pose>
+        <collision name="c"><geometry><box><size>0.02 3.048 0.4</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.02 3.048 0.4</size></box></geometry></visual></link>
+    </model>
+
+    <model name="dock">
+      <static>true</static>
+      <pose>1.524 0.03 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="v"><geometry><box><size>0.30 0.04 0.08</size></box></geometry>
+          <material><ambient>0.1 0.8 0.3 1</ambient><diffuse>0.1 0.8 0.3 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="box_1">
+      <static>true</static>
+      <pose>0.62 1.92 0.15 0 0 0.2</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.40 0.30 0.30</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.40 0.30 0.30</size></box></geometry>
+          <material><ambient>0.55 0.4 0.25 1</ambient><diffuse>0.55 0.4 0.25 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="box_2">
+      <static>true</static>
+      <pose>2.35 0.95 0.15 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.32 0.26 0.30</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.32 0.26 0.30</size></box></geometry>
+          <material><ambient>0.55 0.4 0.25 1</ambient><diffuse>0.55 0.4 0.25 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="bin">
+      <static>true</static>
+      <pose>0.55 0.75 0.18 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><cylinder><radius>0.13</radius><length>0.36</length></cylinder></geometry></collision>
+        <visual name="v"><geometry><cylinder><radius>0.13</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>0.2 0.3 0.7 1</ambient><diffuse>0.2 0.3 0.7 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- chair: 4 legs (robot fits under the 45 cm seat but not between the legs) -->
+    <model name="chair">
+      <static>true</static>
+      <pose>2.10 2.15 0 0 0 0.25</pose>
+      <link name="link">
+        <collision name="leg1"><pose>0.19 0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></collision>
+        <collision name="leg2"><pose>-0.19 0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></collision>
+        <collision name="leg3"><pose>0.19 -0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></collision>
+        <collision name="leg4"><pose>-0.19 -0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></collision>
+        <collision name="seat"><pose>0 0 0.47 0 0 0</pose><geometry><box><size>0.44 0.44 0.04</size></box></geometry></collision>
+        <visual name="leg1v"><pose>0.19 0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></visual>
+        <visual name="leg2v"><pose>-0.19 0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></visual>
+        <visual name="leg3v"><pose>0.19 -0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></visual>
+        <visual name="leg4v"><pose>-0.19 -0.19 0.225 0 0 0</pose><geometry><cylinder><radius>0.03</radius><length>0.45</length></cylinder></geometry></visual>
+        <visual name="seatv"><pose>0 0 0.47 0 0 0</pose><geometry><box><size>0.44 0.44 0.04</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- power cable lying on the floor: 1 cm tall, below the 5 cm sensor plane -->
+    <model name="power_cable">
+      <static>true</static>
+      <pose>1.30 2.55 0.006 0 1.5708 0.3</pose>
+      <link name="link">
+        <visual name="v"><geometry><cylinder><radius>0.006</radius><length>0.7</length></cylinder></geometry>
+          <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse></material></visual>
+      </link>
+    </model>
+  </world>
+</sdf>

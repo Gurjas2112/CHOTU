@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# ROS 2 / colcon
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# PlatformIO / C++
+.pio/
+firmware/**/test_host/test_chotu_logic
+firmware/**/test_host/*.exe
+*.o
+
+# ML artefacts (download / train separately)
+runs/
+datasets/
+*.pt
+models/*.onnx
+models/*_ncnn_model/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json

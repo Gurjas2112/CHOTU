@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chotu-core"
+version = "2.0.0"
+description = "Autonomy library of CHOTU, the AtomQuest 2025 autonomous cleaning robot (Team Hack O' Giants)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Gurjas Singh Gandhi" }, { name = "Team Hack O' Giants" }]
+dependencies = ["numpy>=1.21"]
+
+[project.optional-dependencies]
+sim = ["opencv-python>=4.6", "matplotlib>=3.5"]
+robot = ["pyserial>=3.5"]
+vision = ["ultralytics==8.3.40"]
+dev = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["chotu_core"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

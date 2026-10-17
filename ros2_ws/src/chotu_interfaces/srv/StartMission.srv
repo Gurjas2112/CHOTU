@@ -1,0 +1,6 @@
+# Start (or abort) an AtomQuest cleaning mission
+bool abort
+float32 time_budget_s        # 0 = use the configured 300 s
+---
+bool accepted
+string message
