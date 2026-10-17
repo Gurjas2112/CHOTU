@@ -1,0 +1,2143 @@
+(export 
+  (version "D")
+  (design
+    (source "chotu_carrier.py")
+    (date "10/17/2026 08:16 PM")
+    (tool "SKiDL (3.0.0)")
+    (sheet
+      (number 1)
+      (name "/")
+      (tstamps "/")
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source "chotu_carrier.py")
+        (comment
+          (number "1")
+          (value ""))
+        (comment
+          (number "2")
+          (value ""))
+        (comment
+          (number "3")
+          (value ""))
+        (comment
+          (number "4")
+          (value ""))
+        (comment
+          (number "5")
+          (value ""))
+        (comment
+          (number "6")
+          (value ""))
+        (comment
+          (number "7")
+          (value ""))
+        (comment
+          (number "8")
+          (value ""))
+        (comment
+          (number "9")
+          (value "")))))
+  (components
+    (comp
+      (ref "C1")
+      (value "470uF 25V")
+      (description "")
+      (footprint "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "470uF"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "b514d237-c153-5f6d-afe2-53badf97a864"))
+    (comp
+      (ref "C2")
+      (value "1000uF 10V")
+      (description "")
+      (footprint "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1000uF"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "507fddd0-e494-5270-a7e4-2511aa140519"))
+    (comp
+      (ref "C3")
+      (value "4.7uF")
+      (description "")
+      (footprint "Capacitor_SMD:C_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C3")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "4.7uF"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "299afff0-b6cf-50c0-a677-db76bcc001ee"))
+    (comp
+      (ref "C4")
+      (value "100nF")
+      (description "")
+      (footprint "Capacitor_SMD:C_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C4")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "100nF"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "6f9a1813-19d4-5d20-adea-8868e7232e30"))
+    (comp
+      (ref "D1")
+      (value "1N5822")
+      (description "")
+      (footprint "Diode_THT:D_DO-201AD_P15.24mm_Horizontal")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Diode_THT:D_DO-201AD_P15.24mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "D1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1N5822"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "730dc923-5f42-5190-a58b-2dbed3a5d5b0"))
+    (comp
+      (ref "D2")
+      (value "1N5822")
+      (description "")
+      (footprint "Diode_THT:D_DO-201AD_P15.24mm_Horizontal")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Diode_THT:D_DO-201AD_P15.24mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "D2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1N5822"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "06934a86-3c08-5320-b71c-96bf0d33127c"))
+    (comp
+      (ref "F1")
+      (value "Fuse 10A ATO")
+      (description "")
+      (footprint "Fuse:Fuseholder_Blade_ATO_Littelfuse_FLR_178.6165")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Fuse:Fuseholder_Blade_ATO_Littelfuse_FLR_178.6165")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "F1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Fuse"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "c8376089-30f9-5993-9f79-3ca96ebaa282"))
+    (comp
+      (ref "J1")
+      (value "XT60 battery 3S 11.1V")
+      (description "")
+      (footprint "Connector_AMASS:AMASS_XT60-M_1x02_P7.20mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_AMASS:AMASS_XT60-M_1x02_P7.20mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "XT60"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "d7608689-a7d2-514c-aa16-0f8bde5cf213"))
+    (comp
+      (ref "J10")
+      (value "HC-SR04 R")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J10")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "HC-SR04"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "a30fad10-12ff-59b6-bb36-3528538f60aa"))
+    (comp
+      (ref "J11")
+      (value "VL53L0X ToF")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J11")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "VL53L0X"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "8ec37a19-cf15-52d5-abb1-d7fe369235ae"))
+    (comp
+      (ref "J12")
+      (value "MPU6050 IMU")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J12")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "MPU6050"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "9f0977aa-2034-5091-9388-a8956fc6ece2"))
+    (comp
+      (ref "J13")
+      (value "SW-420 bump")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J13")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "SW-420"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "afb21e22-34c3-5ac9-8f43-986fd3e13711"))
+    (comp
+      (ref "J14")
+      (value "TCRT5000 cliff L")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J14")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TCRT5000"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "715e1326-c355-5927-a838-42a9ddaf1c31"))
+    (comp
+      (ref "J15")
+      (value "TCRT5000 cliff R")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J15")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TCRT5000"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "c696e197-08ba-5e86-ad8c-c4837b8e8574"))
+    (comp
+      (ref "J16")
+      (value "TSOP38238 dock IR")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J16")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TSOP38238"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "b0683d67-1af9-5fde-bb1c-bf0134cca5b1"))
+    (comp
+      (ref "J17")
+      (value "Bergmann BAV-60 vacuum 12V/60W")
+      (description "")
+      (footprint "Connector_AMASS:AMASS_XT30PW-M_1x02_P2.50mm_Horizontal")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_AMASS:AMASS_XT30PW-M_1x02_P2.50mm_Horizontal")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J17")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Bergmann"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "18b0a71a-4b27-5b50-bc6e-a7dba4231b2d"))
+    (comp
+      (ref "J18")
+      (value "Side-brush motor 12V")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J18")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Side-brush"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2fd94e52-a636-5d93-89eb-64f41bd22b4e"))
+    (comp
+      (ref "J2")
+      (value "Rocker switch (panel)")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Rocker"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "5e0b731b-c654-5cf6-8847-00f2f042255c"))
+    (comp
+      (ref "J3")
+      (value "Raspberry Pi 4 5V feed (GPIO pins 2/6)")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J3")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Raspberry"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "feeefe1a-2e42-5bb8-adfa-cd7486f50a6d"))
+    (comp
+      (ref "J4")
+      (value "Left BO motor")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J4")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Left"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "c449faf0-e5d1-5f09-ba34-b969c94251c8"))
+    (comp
+      (ref "J5")
+      (value "Right BO motor")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J5")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Right"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "f5689b7a-fac2-5a8c-aa11-b3b9d837b29f"))
+    (comp
+      (ref "J6")
+      (value "Encoder L (LM393)")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J6")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Encoder"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "0e3756c0-0751-5147-8013-57cbcb656651"))
+    (comp
+      (ref "J7")
+      (value "Encoder R (LM393)")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J7")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Encoder"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "d3f28a6c-17c1-5c6b-aaa4-b24b96f23d33"))
+    (comp
+      (ref "J8")
+      (value "HC-SR04 L")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J8")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "HC-SR04"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "18f973cb-a59f-57ca-8fcc-4553ee8b8f10"))
+    (comp
+      (ref "J9")
+      (value "HC-SR04 C")
+      (description "")
+      (footprint "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "J9")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "HC-SR04"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "b84cd4ea-7126-5975-b238-83f68de8e49f"))
+    (comp
+      (ref "Q1")
+      (value "IRLZ44N")
+      (description "")
+      (footprint "Package_TO_SOT_THT:TO-220-3_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Package_TO_SOT_THT:TO-220-3_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Q1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "IRLZ44N"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "9699dfdd-a6d3-59e3-8793-7f24db869fba"))
+    (comp
+      (ref "Q2")
+      (value "IRLZ44N")
+      (description "")
+      (footprint "Package_TO_SOT_THT:TO-220-3_Vertical")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Package_TO_SOT_THT:TO-220-3_Vertical")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Q2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "IRLZ44N"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "7852643a-7934-5503-82c8-62f05e9bd38e"))
+    (comp
+      (ref "R1")
+      (value "10k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "10k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "91628e47-8f83-5ba1-abed-4cb134d83eea"))
+    (comp
+      (ref "R10")
+      (value "1k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R10")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "99b6d9e4-efbb-57f3-bc7c-dc7822d36beb"))
+    (comp
+      (ref "R11")
+      (value "2k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R11")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "2k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "146f51db-bb3a-5131-afc8-7744106d2cfe"))
+    (comp
+      (ref "R12")
+      (value "4.7k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R12")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "4.7k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "9f75750b-4097-5a2a-b9eb-5e3f319978ce"))
+    (comp
+      (ref "R13")
+      (value "4.7k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R13")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "4.7k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2e9cb324-63c9-5ad4-ba1a-b618f4020bea"))
+    (comp
+      (ref "R14")
+      (value "100R")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R14")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "100R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "fc87fb8d-6ec9-5f6a-ba62-fc9d37c462e7"))
+    (comp
+      (ref "R15")
+      (value "100R")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R15")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "100R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "17eaf0a6-9932-5348-b523-0122128974c2"))
+    (comp
+      (ref "R16")
+      (value "10k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R16")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "10k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "0ffe9dd6-18d7-5bd8-8f5c-a4cd816c10e4"))
+    (comp
+      (ref "R17")
+      (value "100R")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R17")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "100R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "47689824-ff01-5dd6-9338-a42dda36a2ce"))
+    (comp
+      (ref "R18")
+      (value "10k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R18")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "10k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "e4735f31-c71b-5536-824e-0b76945c5495"))
+    (comp
+      (ref "R19")
+      (value "100k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R19")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "100k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "0ead03f1-50b6-599b-864c-cf54dd0f7185"))
+    (comp
+      (ref "R2")
+      (value "1k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "91c587b0-c855-58aa-84a9-2ba4ce88549e"))
+    (comp
+      (ref "R20")
+      (value "22k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R20")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "22k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "6d059f79-f7fb-532a-98db-972feb6a8e76"))
+    (comp
+      (ref "R3")
+      (value "2k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R3")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "2k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "9000ab58-0faa-55db-ba96-c3a9c048b920"))
+    (comp
+      (ref "R4")
+      (value "1k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R4")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "a3a00a8b-c8d1-582e-9de2-300987de8d24"))
+    (comp
+      (ref "R5")
+      (value "2k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R5")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "2k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "29f79588-e279-5ce8-b215-982a9074cc1e"))
+    (comp
+      (ref "R6")
+      (value "1k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R6")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "380e2b43-9216-5117-9f41-94795d9c3e8a"))
+    (comp
+      (ref "R7")
+      (value "2k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R7")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "2k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "45fbc468-780f-56f4-b6ba-53310b6a0e74"))
+    (comp
+      (ref "R8")
+      (value "1k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R8")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "1k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "d4602b99-fd19-5b52-9a62-e3fbb9d2ed0c"))
+    (comp
+      (ref "R9")
+      (value "2k")
+      (description "")
+      (footprint "Resistor_SMD:R_0805_2012Metric")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0805_2012Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R9")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "2k"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "abe8364b-5ed9-593a-a990-c9655e96dd67"))
+    (comp
+      (ref "TP1")
+      (value "TP VBAT")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D2.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D2.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "ec7b7017-d3a1-52a1-ab31-ef99bc577234"))
+    (comp
+      (ref "TP2")
+      (value "TP +5V")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D2.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D2.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "21c4b62b-8c2d-56ee-9b42-d10ab095f277"))
+    (comp
+      (ref "TP3")
+      (value "TP +3V3")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D2.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D2.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP3")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "a276100e-c6a6-5278-88b4-43d6f23fc86c"))
+    (comp
+      (ref "TP4")
+      (value "TP GND")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D2.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D2.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP4")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "2b772136-9490-52ee-a6b6-3823f884de0d"))
+    (comp
+      (ref "U1")
+      (value "ESP32-S3-DevKitC-1 (N8R8)")
+      (description "")
+      (footprint "CHOTU:ESP32-S3-DevKitC-1_2x22_socket")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "CHOTU:ESP32-S3-DevKitC-1_2x22_socket")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "U1")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "ESP32-S3-DevKitC-1"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "f8fce87b-acde-5341-b554-4e93a034d648"))
+    (comp
+      (ref "U2")
+      (value "XL4015 5V/5A buck module")
+      (description "")
+      (footprint "CHOTU:XL4015_module_pads")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "CHOTU:XL4015_module_pads")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "U2")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "XL4015"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "7a03e947-39e7-5554-99eb-b5f6bb184fae"))
+    (comp
+      (ref "U3")
+      (value "TB6612FNG module")
+      (description "")
+      (footprint "CHOTU:TB6612FNG_module_2x8")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "CHOTU:TB6612FNG_module_2x8")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "U3")
+        (field
+          (name "SKiDL Line") "chotu_carrier.py:190"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TB6612FNG"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (tstamps "d29b9cd6-156c-5987-b6f9-a6a085b1d5a7")))
+  (nets
+    (net
+      (code 1)
+      (name "+3V3")
+      (class "Default")
+      (node
+        (ref "J11")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J12")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J13")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J14")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J15")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R12")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R13")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R14")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 2)
+      (name "+5V")
+      (class "Default")
+      (node
+        (ref "C2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J10")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J6")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J7")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J8")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J9")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "21")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U2")
+        (pin "3")
+        (pintype "PASSIVE")))
+    (net
+      (code 3)
+      (name "BATT_SENSE")
+      (class "Default")
+      (node
+        (ref "C4")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R19")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R20")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "26")
+        (pintype "PASSIVE")))
+    (net
+      (code 4)
+      (name "BRUSH_D")
+      (class "Default")
+      (node
+        (ref "D2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J18")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "Q2")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 5)
+      (name "BRUSH_G")
+      (class "Default")
+      (node
+        (ref "Q2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R17")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R18")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 6)
+      (name "BRUSH_PWM")
+      (class "Default")
+      (node
+        (ref "R17")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "28")
+        (pintype "PASSIVE")))
+    (net
+      (code 7)
+      (name "CLIFF_L")
+      (class "Default")
+      (node
+        (ref "J14")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "31")
+        (pintype "PASSIVE")))
+    (net
+      (code 8)
+      (name "CLIFF_R")
+      (class "Default")
+      (node
+        (ref "J15")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "30")
+        (pintype "PASSIVE")))
+    (net
+      (code 9)
+      (name "DOCK_IR")
+      (class "Default")
+      (node
+        (ref "J16")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "13")
+        (pintype "PASSIVE")))
+    (net
+      (code 10)
+      (name "ENC_L")
+      (class "Default")
+      (node
+        (ref "R2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "10")
+        (pintype "PASSIVE")))
+    (net
+      (code 11)
+      (name "ENC_L_5V")
+      (class "Default")
+      (node
+        (ref "J6")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R2")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 12)
+      (name "ENC_R")
+      (class "Default")
+      (node
+        (ref "R4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R5")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "11")
+        (pintype "PASSIVE")))
+    (net
+      (code 13)
+      (name "ENC_R_5V")
+      (class "Default")
+      (node
+        (ref "J7")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R4")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 14)
+      (name "GND")
+      (class "Default")
+      (node
+        (ref "C1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C3")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J10")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J11")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J12")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J13")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J14")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J15")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J16")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J3")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J6")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J7")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J8")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J9")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "Q1")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "Q2")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R11")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R16")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R18")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R20")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R3")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R5")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R7")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R9")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP4")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "22")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "23")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "43")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "44")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U2")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "16")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "8")
+        (pintype "PASSIVE")))
+    (net
+      (code 15)
+      (name "I2C_SCL")
+      (class "Default")
+      (node
+        (ref "J11")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J12")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R12")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "15")
+        (pintype "PASSIVE")))
+    (net
+      (code 16)
+      (name "I2C_SDA")
+      (class "Default")
+      (node
+        (ref "J11")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J12")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R13")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "12")
+        (pintype "PASSIVE")))
+    (net
+      (code 17)
+      (name "MOTOR_L_EN")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "9")
+        (pintype "PASSIVE")))
+    (net
+      (code 18)
+      (name "MOTOR_L_IN1")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "5")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "11")
+        (pintype "PASSIVE")))
+    (net
+      (code 19)
+      (name "MOTOR_L_IN2")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "6")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "10")
+        (pintype "PASSIVE")))
+    (net
+      (code 20)
+      (name "MOTOR_R_EN")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "7")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "15")
+        (pintype "PASSIVE")))
+    (net
+      (code 21)
+      (name "MOTOR_R_IN3")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "8")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "13")
+        (pintype "PASSIVE")))
+    (net
+      (code 22)
+      (name "MOTOR_R_IN4")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "9")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "14")
+        (pintype "PASSIVE")))
+    (net
+      (code 23)
+      (name "MOTOR_STBY")
+      (class "Default")
+      (node
+        (ref "R1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "27")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "12")
+        (pintype "PASSIVE")))
+    (net
+      (code 24)
+      (name "MOT_L_A")
+      (class "Default")
+      (node
+        (ref "J4")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "4")
+        (pintype "PASSIVE")))
+    (net
+      (code 25)
+      (name "MOT_L_B")
+      (class "Default")
+      (node
+        (ref "J4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "5")
+        (pintype "PASSIVE")))
+    (net
+      (code 26)
+      (name "MOT_R_A")
+      (class "Default")
+      (node
+        (ref "J5")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "7")
+        (pintype "PASSIVE")))
+    (net
+      (code 27)
+      (name "MOT_R_B")
+      (class "Default")
+      (node
+        (ref "J5")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "6")
+        (pintype "PASSIVE")))
+    (net
+      (code 28)
+      (name "SW420")
+      (class "Default")
+      (node
+        (ref "J13")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "32")
+        (pintype "PASSIVE")))
+    (net
+      (code 29)
+      (name "TOF_XSHUT")
+      (class "Default")
+      (node
+        (ref "J11")
+        (pin "5")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "39")
+        (pintype "PASSIVE")))
+    (net
+      (code 30)
+      (name "TSOP_VS")
+      (class "Default")
+      (node
+        (ref "C3")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J16")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R14")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 31)
+      (name "US_C_ECHO")
+      (class "Default")
+      (node
+        (ref "R8")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R9")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "20")
+        (pintype "PASSIVE")))
+    (net
+      (code 32)
+      (name "US_C_ECHO_5V")
+      (class "Default")
+      (node
+        (ref "J9")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R8")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 33)
+      (name "US_C_TRIG")
+      (class "Default")
+      (node
+        (ref "J9")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "17")
+        (pintype "PASSIVE")))
+    (net
+      (code 34)
+      (name "US_L_ECHO")
+      (class "Default")
+      (node
+        (ref "R6")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R7")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "19")
+        (pintype "PASSIVE")))
+    (net
+      (code 35)
+      (name "US_L_ECHO_5V")
+      (class "Default")
+      (node
+        (ref "J8")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R6")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 36)
+      (name "US_L_TRIG")
+      (class "Default")
+      (node
+        (ref "J8")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "16")
+        (pintype "PASSIVE")))
+    (net
+      (code 37)
+      (name "US_R_ECHO")
+      (class "Default")
+      (node
+        (ref "R10")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R11")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "40")
+        (pintype "PASSIVE")))
+    (net
+      (code 38)
+      (name "US_R_ECHO_5V")
+      (class "Default")
+      (node
+        (ref "J10")
+        (pin "3")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R10")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 39)
+      (name "US_R_TRIG")
+      (class "Default")
+      (node
+        (ref "J10")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "18")
+        (pintype "PASSIVE")))
+    (net
+      (code 40)
+      (name "VACUUM_D")
+      (class "Default")
+      (node
+        (ref "D1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J17")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "Q1")
+        (pin "2")
+        (pintype "PASSIVE")))
+    (net
+      (code 41)
+      (name "VACUUM_G")
+      (class "Default")
+      (node
+        (ref "Q1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R15")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R16")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 42)
+      (name "VACUUM_PWM")
+      (class "Default")
+      (node
+        (ref "R15")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U1")
+        (pin "29")
+        (pintype "PASSIVE")))
+    (net
+      (code 43)
+      (name "VBAT")
+      (class "Default")
+      (node
+        (ref "C1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J17")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J18")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R19")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U3")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 44)
+      (name "VBAT_RAW")
+      (class "Default")
+      (node
+        (ref "F1")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J1")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 45)
+      (name "VBAT_SW")
+      (class "Default")
+      (node
+        (ref "F1")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "J2")
+        (pin "1")
+        (pintype "PASSIVE")))))

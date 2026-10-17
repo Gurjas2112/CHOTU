@@ -11,7 +11,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Detection.msg"
   "msg/DetectionArray.msg"
   "msg/Actuators.msg"
+  "msg/Zone.msg"
   "srv/StartMission.srv"
+  "srv/SetZones.srv"
   DEPENDENCIES std_msgs geometry_msgs
 )
 

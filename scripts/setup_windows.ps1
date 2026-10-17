@@ -1,7 +1,7 @@
 # CHOTU workstation setup + full verification on Windows 11 (PowerShell 5.1+)
 #   powershell -ExecutionPolicy Bypass -File scripts\setup_windows.ps1
 # Creates .venv (Python 3.12), installs requirements, runs pytest, the firmware
-# host tests (MSYS2 g++), and a headless simulation benchmark.
+# host tests (MSYS2 g++), and the fleet backend tests.
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
@@ -26,6 +26,8 @@ Remove-Item test_chotu_logic.exe
 Pop-Location
 if ($rc -ne 0) { throw "firmware host tests failed" }
 
-Write-Host "== Digital-twin benchmark (10 random rooms)" -ForegroundColor Cyan
-& .\.venv\Scripts\python.exe bot_simulation\run_simulation.py --benchmark 10 --headless --seed 0
+Write-Host "== Fleet backend tests" -ForegroundColor Cyan
+& .\.venv\Scripts\python.exe -m pip install -q -r backend\requirements.txt
+& .\.venv\Scripts\python.exe -m pytest backend\tests -q
+if ($LASTEXITCODE -ne 0) { throw "backend tests failed" }
 Write-Host "All checks passed." -ForegroundColor Green

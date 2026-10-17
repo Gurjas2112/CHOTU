@@ -67,6 +67,7 @@ class SerialBridge(Node):
         self.imu_pub = self.create_publisher(Imu, "imu", qos_profile_sensor_data)
         self.bump_pub = self.create_publisher(Bool, "chotu/bump", 10)
         self.cliff_pub = self.create_publisher(Bool, "chotu/cliff", 10)
+        self.dock_ir_pub = self.create_publisher(Bool, "chotu/dock_ir", 10)
         self.batt_pub = self.create_publisher(BatteryState, "battery_state", 10)
         self.range_pubs = {name: self.create_publisher(Range, f"range/{name}", qos_profile_sensor_data)
                            for name in ("left", "center", "right", "tof")}
@@ -154,6 +155,7 @@ class SerialBridge(Node):
 
         self.bump_pub.publish(Bool(data=t.bump))
         self.cliff_pub.publish(Bool(data=t.cliff))
+        self.dock_ir_pub.publish(Bool(data=bool(t.flags & P.FLAG_DOCK_IR)))
         b = BatteryState()
         b.header.stamp = now
         b.voltage = t.battery_v

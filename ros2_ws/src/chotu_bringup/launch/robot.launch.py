@@ -21,6 +21,9 @@ def generate_launch_description():
     desc = os.path.join(get_package_share_directory("chotu_description"), "launch", "description.launch.py")
     auto_start = ParameterValue(LaunchConfiguration("auto_start"), value_type=bool)
     return LaunchDescription([
+        # rosbridge = the robot's app API (Flutter app connects to ws://<pi>:9090)
+        Node(package="rosbridge_server", executable="rosbridge_websocket", name="rosbridge",
+             output="screen"),
         DeclareLaunchArgument("port", default_value="/dev/ttyUSB0"),
         DeclareLaunchArgument("vision", default_value="true"),
         DeclareLaunchArgument("auto_start", default_value="false"),

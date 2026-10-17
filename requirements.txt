@@ -1,8 +1,4 @@
-# Workstation / simulation requirements (Python 3.10 - 3.12)
+# chotu_core + root tests (Python 3.10 - 3.12)
 numpy>=1.21
-opencv-python>=4.6
-matplotlib>=3.5
 pyserial>=3.5
 pytest>=7
-# Optional - YOLOv8n training / GPU inference on the RTX 3060:
-# ultralytics==8.3.40

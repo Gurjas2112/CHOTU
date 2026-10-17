@@ -1,0 +1,2767 @@
+{
+  "robot_id": "chotu-01",
+  "source": "gazebo_fortress",
+  "hz": 1,
+  "frames": [
+    {
+      "t": 0.0,
+      "state": "IDLE",
+      "coverage": 0.0,
+      "battery_pct": 100.0,
+      "suction_pct": 0,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -3.142
+      }
+    },
+    {
+      "t": 1.0,
+      "state": "UNDOCK",
+      "coverage": 0.0,
+      "battery_pct": 99.99,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -3.03
+      }
+    },
+    {
+      "t": 2.0,
+      "state": "UNDOCK",
+      "coverage": 0.0,
+      "battery_pct": 99.98,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -2.919
+      }
+    },
+    {
+      "t": 3.0,
+      "state": "UNDOCK",
+      "coverage": 0.0,
+      "battery_pct": 99.97,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -2.808
+      }
+    },
+    {
+      "t": 4.0,
+      "state": "SCAN",
+      "coverage": 0.0,
+      "battery_pct": 99.95,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -2.697
+      }
+    },
+    {
+      "t": 5.0,
+      "state": "SCAN",
+      "coverage": 0.0,
+      "battery_pct": 99.94,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -2.586
+      }
+    },
+    {
+      "t": 6.0,
+      "state": "SCAN",
+      "coverage": 0.0,
+      "battery_pct": 99.93,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -2.475
+      }
+    },
+    {
+      "t": 7.0,
+      "state": "SCAN",
+      "coverage": 0.0,
+      "battery_pct": 99.92,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.524,
+        "y": 0.25,
+        "theta": -2.364
+      }
+    },
+    {
+      "t": 8.0,
+      "state": "COVER",
+      "coverage": 0.0023,
+      "battery_pct": 99.91,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.525,
+        "y": 0.254,
+        "theta": -2.253
+      }
+    },
+    {
+      "t": 9.0,
+      "state": "COVER",
+      "coverage": 0.007,
+      "battery_pct": 99.9,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.528,
+        "y": 0.261,
+        "theta": -2.142
+      }
+    },
+    {
+      "t": 10.0,
+      "state": "COVER",
+      "coverage": 0.0117,
+      "battery_pct": 99.89,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.531,
+        "y": 0.269,
+        "theta": -2.03
+      }
+    },
+    {
+      "t": 11.0,
+      "state": "COVER",
+      "coverage": 0.0164,
+      "battery_pct": 99.88,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.535,
+        "y": 0.278,
+        "theta": -1.919
+      }
+    },
+    {
+      "t": 12.0,
+      "state": "COVER",
+      "coverage": 0.0211,
+      "battery_pct": 99.86,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.539,
+        "y": 0.286,
+        "theta": -1.808
+      }
+    },
+    {
+      "t": 13.0,
+      "state": "COVER",
+      "coverage": 0.0257,
+      "battery_pct": 99.85,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.544,
+        "y": 0.295,
+        "theta": -1.697
+      }
+    },
+    {
+      "t": 14.0,
+      "state": "COVER",
+      "coverage": 0.0304,
+      "battery_pct": 99.84,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.549,
+        "y": 0.305,
+        "theta": -1.586
+      }
+    },
+    {
+      "t": 15.0,
+      "state": "COVER",
+      "coverage": 0.0351,
+      "battery_pct": 99.83,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.554,
+        "y": 0.314,
+        "theta": -1.475
+      }
+    },
+    {
+      "t": 16.0,
+      "state": "COVER",
+      "coverage": 0.0398,
+      "battery_pct": 99.82,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.56,
+        "y": 0.324,
+        "theta": -1.364
+      }
+    },
+    {
+      "t": 17.0,
+      "state": "COVER",
+      "coverage": 0.0445,
+      "battery_pct": 99.81,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.566,
+        "y": 0.335,
+        "theta": -1.253
+      }
+    },
+    {
+      "t": 18.0,
+      "state": "COVER",
+      "coverage": 0.0492,
+      "battery_pct": 99.8,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.572,
+        "y": 0.345,
+        "theta": -1.142
+      }
+    },
+    {
+      "t": 19.0,
+      "state": "COVER",
+      "coverage": 0.0538,
+      "battery_pct": 99.78,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.578,
+        "y": 0.356,
+        "theta": -1.03
+      }
+    },
+    {
+      "t": 20.0,
+      "state": "COVER",
+      "coverage": 0.0585,
+      "battery_pct": 99.77,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.585,
+        "y": 0.367,
+        "theta": -0.919
+      }
+    },
+    {
+      "t": 21.0,
+      "state": "COVER",
+      "coverage": 0.0632,
+      "battery_pct": 99.76,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.591,
+        "y": 0.379,
+        "theta": -0.808
+      }
+    },
+    {
+      "t": 22.0,
+      "state": "COVER",
+      "coverage": 0.0679,
+      "battery_pct": 99.75,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.597,
+        "y": 0.39,
+        "theta": -0.697
+      }
+    },
+    {
+      "t": 23.0,
+      "state": "COVER",
+      "coverage": 0.0726,
+      "battery_pct": 99.74,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.604,
+        "y": 0.402,
+        "theta": -0.586
+      }
+    },
+    {
+      "t": 24.0,
+      "state": "COVER",
+      "coverage": 0.0772,
+      "battery_pct": 99.73,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.61,
+        "y": 0.414,
+        "theta": -0.475
+      }
+    },
+    {
+      "t": 25.0,
+      "state": "COVER",
+      "coverage": 0.0819,
+      "battery_pct": 99.72,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.616,
+        "y": 0.427,
+        "theta": -0.364
+      }
+    },
+    {
+      "t": 26.0,
+      "state": "COVER",
+      "coverage": 0.0866,
+      "battery_pct": 99.71,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.621,
+        "y": 0.439,
+        "theta": -0.253
+      }
+    },
+    {
+      "t": 27.0,
+      "state": "COVER",
+      "coverage": 0.0913,
+      "battery_pct": 99.69,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.627,
+        "y": 0.452,
+        "theta": -0.142
+      }
+    },
+    {
+      "t": 28.0,
+      "state": "COVER",
+      "coverage": 0.096,
+      "battery_pct": 99.68,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.631,
+        "y": 0.464,
+        "theta": -0.03
+      }
+    },
+    {
+      "t": 29.0,
+      "state": "COVER",
+      "coverage": 0.1006,
+      "battery_pct": 99.67,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.636,
+        "y": 0.477,
+        "theta": 0.081
+      }
+    },
+    {
+      "t": 30.0,
+      "state": "COVER",
+      "coverage": 0.1053,
+      "battery_pct": 99.66,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.64,
+        "y": 0.49,
+        "theta": 0.192
+      }
+    },
+    {
+      "t": 31.0,
+      "state": "COVER",
+      "coverage": 0.11,
+      "battery_pct": 99.65,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.644,
+        "y": 0.503,
+        "theta": 0.303
+      }
+    },
+    {
+      "t": 32.0,
+      "state": "COVER",
+      "coverage": 0.1147,
+      "battery_pct": 99.64,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.647,
+        "y": 0.516,
+        "theta": 0.414
+      }
+    },
+    {
+      "t": 33.0,
+      "state": "COVER",
+      "coverage": 0.1194,
+      "battery_pct": 99.63,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.649,
+        "y": 0.529,
+        "theta": 0.525
+      }
+    },
+    {
+      "t": 34.0,
+      "state": "COVER",
+      "coverage": 0.1241,
+      "battery_pct": 99.61,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.651,
+        "y": 0.542,
+        "theta": 0.636
+      }
+    },
+    {
+      "t": 35.0,
+      "state": "COVER",
+      "coverage": 0.1287,
+      "battery_pct": 99.6,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.652,
+        "y": 0.555,
+        "theta": 0.747
+      }
+    },
+    {
+      "t": 36.0,
+      "state": "COVER",
+      "coverage": 0.1334,
+      "battery_pct": 99.59,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.652,
+        "y": 0.568,
+        "theta": 0.858
+      }
+    },
+    {
+      "t": 37.0,
+      "state": "COVER",
+      "coverage": 0.1381,
+      "battery_pct": 99.58,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.652,
+        "y": 0.581,
+        "theta": 0.97
+      }
+    },
+    {
+      "t": 38.0,
+      "state": "COVER",
+      "coverage": 0.1428,
+      "battery_pct": 99.57,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.65,
+        "y": 0.594,
+        "theta": 1.081
+      }
+    },
+    {
+      "t": 39.0,
+      "state": "COVER",
+      "coverage": 0.1475,
+      "battery_pct": 99.56,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.648,
+        "y": 0.607,
+        "theta": 1.192
+      }
+    },
+    {
+      "t": 40.0,
+      "state": "COVER",
+      "coverage": 0.1521,
+      "battery_pct": 99.55,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.645,
+        "y": 0.619,
+        "theta": 1.303
+      }
+    },
+    {
+      "t": 41.0,
+      "state": "COVER",
+      "coverage": 0.1568,
+      "battery_pct": 99.54,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.641,
+        "y": 0.632,
+        "theta": 1.414
+      }
+    },
+    {
+      "t": 42.0,
+      "state": "COVER",
+      "coverage": 0.1615,
+      "battery_pct": 99.52,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.637,
+        "y": 0.644,
+        "theta": 1.525
+      }
+    },
+    {
+      "t": 43.0,
+      "state": "COVER",
+      "coverage": 0.1662,
+      "battery_pct": 99.51,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.631,
+        "y": 0.656,
+        "theta": 1.636
+      }
+    },
+    {
+      "t": 44.0,
+      "state": "COVER",
+      "coverage": 0.1709,
+      "battery_pct": 99.5,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.625,
+        "y": 0.668,
+        "theta": 1.747
+      }
+    },
+    {
+      "t": 45.0,
+      "state": "COVER",
+      "coverage": 0.1755,
+      "battery_pct": 99.49,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.618,
+        "y": 0.68,
+        "theta": 1.858
+      }
+    },
+    {
+      "t": 46.0,
+      "state": "COVER",
+      "coverage": 0.1802,
+      "battery_pct": 99.48,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.609,
+        "y": 0.692,
+        "theta": 1.97
+      }
+    },
+    {
+      "t": 47.0,
+      "state": "COVER",
+      "coverage": 0.1849,
+      "battery_pct": 99.47,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.6,
+        "y": 0.703,
+        "theta": 2.081
+      }
+    },
+    {
+      "t": 48.0,
+      "state": "COVER",
+      "coverage": 0.1896,
+      "battery_pct": 99.46,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.591,
+        "y": 0.714,
+        "theta": 2.192
+      }
+    },
+    {
+      "t": 49.0,
+      "state": "COVER",
+      "coverage": 0.1943,
+      "battery_pct": 99.45,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.58,
+        "y": 0.724,
+        "theta": 2.303
+      }
+    },
+    {
+      "t": 50.0,
+      "state": "COVER",
+      "coverage": 0.1989,
+      "battery_pct": 99.43,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.568,
+        "y": 0.735,
+        "theta": 2.414
+      }
+    },
+    {
+      "t": 51.0,
+      "state": "COVER",
+      "coverage": 0.2036,
+      "battery_pct": 99.42,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.556,
+        "y": 0.745,
+        "theta": 2.525
+      }
+    },
+    {
+      "t": 52.0,
+      "state": "COVER",
+      "coverage": 0.2083,
+      "battery_pct": 99.41,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.543,
+        "y": 0.754,
+        "theta": 2.636
+      }
+    },
+    {
+      "t": 53.0,
+      "state": "COVER",
+      "coverage": 0.213,
+      "battery_pct": 99.4,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.53,
+        "y": 0.763,
+        "theta": 2.747
+      }
+    },
+    {
+      "t": 54.0,
+      "state": "COVER",
+      "coverage": 0.2177,
+      "battery_pct": 99.39,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.515,
+        "y": 0.772,
+        "theta": 2.858
+      }
+    },
+    {
+      "t": 55.0,
+      "state": "COVER",
+      "coverage": 0.2224,
+      "battery_pct": 99.38,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.501,
+        "y": 0.781,
+        "theta": 2.97
+      }
+    },
+    {
+      "t": 56.0,
+      "state": "COVER",
+      "coverage": 0.227,
+      "battery_pct": 99.37,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.485,
+        "y": 0.789,
+        "theta": 3.081
+      }
+    },
+    {
+      "t": 57.0,
+      "state": "COVER",
+      "coverage": 0.2317,
+      "battery_pct": 99.35,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.469,
+        "y": 0.796,
+        "theta": -3.091
+      }
+    },
+    {
+      "t": 58.0,
+      "state": "COVER",
+      "coverage": 0.2364,
+      "battery_pct": 99.34,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.453,
+        "y": 0.803,
+        "theta": -2.98
+      }
+    },
+    {
+      "t": 59.0,
+      "state": "COVER",
+      "coverage": 0.2411,
+      "battery_pct": 99.33,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.437,
+        "y": 0.81,
+        "theta": -2.869
+      }
+    },
+    {
+      "t": 60.0,
+      "state": "COVER",
+      "coverage": 0.2458,
+      "battery_pct": 99.32,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.42,
+        "y": 0.816,
+        "theta": -2.758
+      }
+    },
+    {
+      "t": 61.0,
+      "state": "COVER",
+      "coverage": 0.2504,
+      "battery_pct": 99.31,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.402,
+        "y": 0.821,
+        "theta": -2.647
+      }
+    },
+    {
+      "t": 62.0,
+      "state": "COVER",
+      "coverage": 0.2551,
+      "battery_pct": 99.3,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.385,
+        "y": 0.826,
+        "theta": -2.536
+      }
+    },
+    {
+      "t": 63.0,
+      "state": "COVER",
+      "coverage": 0.2598,
+      "battery_pct": 99.29,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.368,
+        "y": 0.831,
+        "theta": -2.425
+      }
+    },
+    {
+      "t": 64.0,
+      "state": "COVER",
+      "coverage": 0.2645,
+      "battery_pct": 99.28,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.351,
+        "y": 0.835,
+        "theta": -2.314
+      }
+    },
+    {
+      "t": 65.0,
+      "state": "COVER",
+      "coverage": 0.2692,
+      "battery_pct": 99.26,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.333,
+        "y": 0.838,
+        "theta": -2.203
+      }
+    },
+    {
+      "t": 66.0,
+      "state": "COVER",
+      "coverage": 0.2738,
+      "battery_pct": 99.25,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.316,
+        "y": 0.841,
+        "theta": -2.091
+      }
+    },
+    {
+      "t": 67.0,
+      "state": "COVER",
+      "coverage": 0.2785,
+      "battery_pct": 99.24,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.3,
+        "y": 0.843,
+        "theta": -1.98
+      }
+    },
+    {
+      "t": 68.0,
+      "state": "COVER",
+      "coverage": 0.2832,
+      "battery_pct": 99.23,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.283,
+        "y": 0.845,
+        "theta": -1.869
+      }
+    },
+    {
+      "t": 69.0,
+      "state": "COVER",
+      "coverage": 0.2879,
+      "battery_pct": 99.22,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.267,
+        "y": 0.846,
+        "theta": -1.758
+      }
+    },
+    {
+      "t": 70.0,
+      "state": "COVER",
+      "coverage": 0.2926,
+      "battery_pct": 99.21,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.252,
+        "y": 0.847,
+        "theta": -1.647
+      }
+    },
+    {
+      "t": 71.0,
+      "state": "COVER",
+      "coverage": 0.2973,
+      "battery_pct": 99.2,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.237,
+        "y": 0.847,
+        "theta": -1.536
+      }
+    },
+    {
+      "t": 72.0,
+      "state": "COVER",
+      "coverage": 0.3019,
+      "battery_pct": 99.18,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.223,
+        "y": 0.846,
+        "theta": -1.425
+      }
+    },
+    {
+      "t": 73.0,
+      "state": "COVER",
+      "coverage": 0.3066,
+      "battery_pct": 99.17,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.209,
+        "y": 0.845,
+        "theta": -1.314
+      }
+    },
+    {
+      "t": 74.0,
+      "state": "COVER",
+      "coverage": 0.3113,
+      "battery_pct": 99.16,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.197,
+        "y": 0.844,
+        "theta": -1.203
+      }
+    },
+    {
+      "t": 75.0,
+      "state": "COVER",
+      "coverage": 0.316,
+      "battery_pct": 99.15,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.185,
+        "y": 0.841,
+        "theta": -1.091
+      }
+    },
+    {
+      "t": 76.0,
+      "state": "COVER",
+      "coverage": 0.3207,
+      "battery_pct": 99.14,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.174,
+        "y": 0.838,
+        "theta": -0.98
+      }
+    },
+    {
+      "t": 77.0,
+      "state": "COVER",
+      "coverage": 0.3253,
+      "battery_pct": 99.13,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.165,
+        "y": 0.835,
+        "theta": -0.869
+      }
+    },
+    {
+      "t": 78.0,
+      "state": "COVER",
+      "coverage": 0.33,
+      "battery_pct": 99.12,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.156,
+        "y": 0.831,
+        "theta": -0.758
+      }
+    },
+    {
+      "t": 79.0,
+      "state": "COVER",
+      "coverage": 0.3347,
+      "battery_pct": 99.11,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.149,
+        "y": 0.826,
+        "theta": -0.647
+      }
+    },
+    {
+      "t": 80.0,
+      "state": "COVER",
+      "coverage": 0.3394,
+      "battery_pct": 99.09,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.143,
+        "y": 0.821,
+        "theta": -0.536
+      }
+    },
+    {
+      "t": 81.0,
+      "state": "COVER",
+      "coverage": 0.3441,
+      "battery_pct": 99.08,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.138,
+        "y": 0.816,
+        "theta": -0.425
+      }
+    },
+    {
+      "t": 82.0,
+      "state": "COVER",
+      "coverage": 0.3487,
+      "battery_pct": 99.07,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.135,
+        "y": 0.809,
+        "theta": -0.314
+      }
+    },
+    {
+      "t": 83.0,
+      "state": "COVER",
+      "coverage": 0.3534,
+      "battery_pct": 99.06,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.133,
+        "y": 0.803,
+        "theta": -0.203
+      }
+    },
+    {
+      "t": 84.0,
+      "state": "COVER",
+      "coverage": 0.3581,
+      "battery_pct": 99.05,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.132,
+        "y": 0.795,
+        "theta": -0.091
+      }
+    },
+    {
+      "t": 85.0,
+      "state": "COVER",
+      "coverage": 0.3628,
+      "battery_pct": 99.04,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.133,
+        "y": 0.787,
+        "theta": 0.02
+      }
+    },
+    {
+      "t": 86.0,
+      "state": "COVER",
+      "coverage": 0.3675,
+      "battery_pct": 99.03,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.136,
+        "y": 0.779,
+        "theta": 0.131
+      }
+    },
+    {
+      "t": 87.0,
+      "state": "COVER",
+      "coverage": 0.3722,
+      "battery_pct": 99.01,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.14,
+        "y": 0.77,
+        "theta": 0.242
+      }
+    },
+    {
+      "t": 88.0,
+      "state": "COVER",
+      "coverage": 0.3768,
+      "battery_pct": 99.0,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.145,
+        "y": 0.761,
+        "theta": 0.353
+      }
+    },
+    {
+      "t": 89.0,
+      "state": "COVER",
+      "coverage": 0.3815,
+      "battery_pct": 98.99,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.153,
+        "y": 0.751,
+        "theta": 0.464
+      }
+    },
+    {
+      "t": 90.0,
+      "state": "COVER",
+      "coverage": 0.3862,
+      "battery_pct": 98.98,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.162,
+        "y": 0.741,
+        "theta": 0.575
+      }
+    },
+    {
+      "t": 91.0,
+      "state": "COVER",
+      "coverage": 0.3909,
+      "battery_pct": 98.97,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.172,
+        "y": 0.731,
+        "theta": 0.686
+      }
+    },
+    {
+      "t": 92.0,
+      "state": "COVER",
+      "coverage": 0.3956,
+      "battery_pct": 98.96,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.184,
+        "y": 0.72,
+        "theta": 0.797
+      }
+    },
+    {
+      "t": 93.0,
+      "state": "COVER",
+      "coverage": 0.4002,
+      "battery_pct": 98.95,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.198,
+        "y": 0.708,
+        "theta": 0.909
+      }
+    },
+    {
+      "t": 94.0,
+      "state": "COVER",
+      "coverage": 0.4049,
+      "battery_pct": 98.94,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.213,
+        "y": 0.697,
+        "theta": 1.02
+      }
+    },
+    {
+      "t": 95.0,
+      "state": "COVER",
+      "coverage": 0.4096,
+      "battery_pct": 98.92,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.229,
+        "y": 0.685,
+        "theta": 1.131
+      }
+    },
+    {
+      "t": 96.0,
+      "state": "COVER",
+      "coverage": 0.4143,
+      "battery_pct": 98.91,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.248,
+        "y": 0.672,
+        "theta": 1.242
+      }
+    },
+    {
+      "t": 97.0,
+      "state": "COVER",
+      "coverage": 0.419,
+      "battery_pct": 98.9,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.267,
+        "y": 0.66,
+        "theta": 1.353
+      }
+    },
+    {
+      "t": 98.0,
+      "state": "COVER",
+      "coverage": 0.4236,
+      "battery_pct": 98.89,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.288,
+        "y": 0.647,
+        "theta": 1.464
+      }
+    },
+    {
+      "t": 99.0,
+      "state": "COVER",
+      "coverage": 0.4283,
+      "battery_pct": 98.88,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.311,
+        "y": 0.634,
+        "theta": 1.575
+      }
+    },
+    {
+      "t": 100.0,
+      "state": "COVER",
+      "coverage": 0.433,
+      "battery_pct": 98.87,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.334,
+        "y": 0.62,
+        "theta": 1.686
+      }
+    },
+    {
+      "t": 101.0,
+      "state": "COVER",
+      "coverage": 0.4377,
+      "battery_pct": 98.86,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.359,
+        "y": 0.607,
+        "theta": 1.797
+      }
+    },
+    {
+      "t": 102.0,
+      "state": "COVER",
+      "coverage": 0.4424,
+      "battery_pct": 98.84,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.385,
+        "y": 0.593,
+        "theta": 1.909
+      }
+    },
+    {
+      "t": 103.0,
+      "state": "COVER",
+      "coverage": 0.4471,
+      "battery_pct": 98.83,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.412,
+        "y": 0.579,
+        "theta": 2.02
+      }
+    },
+    {
+      "t": 104.0,
+      "state": "COVER",
+      "coverage": 0.4517,
+      "battery_pct": 98.82,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.44,
+        "y": 0.565,
+        "theta": 2.131
+      }
+    },
+    {
+      "t": 105.0,
+      "state": "COVER",
+      "coverage": 0.4564,
+      "battery_pct": 98.81,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.469,
+        "y": 0.551,
+        "theta": 2.242
+      }
+    },
+    {
+      "t": 106.0,
+      "state": "COVER",
+      "coverage": 0.4611,
+      "battery_pct": 98.8,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.499,
+        "y": 0.537,
+        "theta": 2.353
+      }
+    },
+    {
+      "t": 107.0,
+      "state": "COVER",
+      "coverage": 0.4658,
+      "battery_pct": 98.79,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.53,
+        "y": 0.523,
+        "theta": 2.464
+      }
+    },
+    {
+      "t": 108.0,
+      "state": "COVER",
+      "coverage": 0.4705,
+      "battery_pct": 98.78,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.561,
+        "y": 0.509,
+        "theta": 2.575
+      }
+    },
+    {
+      "t": 109.0,
+      "state": "COVER",
+      "coverage": 0.4751,
+      "battery_pct": 98.77,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.592,
+        "y": 0.495,
+        "theta": 2.686
+      }
+    },
+    {
+      "t": 110.0,
+      "state": "COVER",
+      "coverage": 0.4798,
+      "battery_pct": 98.75,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.624,
+        "y": 0.481,
+        "theta": 2.797
+      }
+    },
+    {
+      "t": 111.0,
+      "state": "COVER",
+      "coverage": 0.4845,
+      "battery_pct": 98.74,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.657,
+        "y": 0.468,
+        "theta": 2.909
+      }
+    },
+    {
+      "t": 112.0,
+      "state": "COVER",
+      "coverage": 0.4892,
+      "battery_pct": 98.73,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.689,
+        "y": 0.454,
+        "theta": 3.02
+      }
+    },
+    {
+      "t": 113.0,
+      "state": "COVER",
+      "coverage": 0.4939,
+      "battery_pct": 98.72,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.721,
+        "y": 0.44,
+        "theta": 3.131
+      }
+    },
+    {
+      "t": 114.0,
+      "state": "COVER",
+      "coverage": 0.4985,
+      "battery_pct": 98.71,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.754,
+        "y": 0.427,
+        "theta": -3.041
+      }
+    },
+    {
+      "t": 115.0,
+      "state": "COVER",
+      "coverage": 0.5032,
+      "battery_pct": 98.7,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.786,
+        "y": 0.414,
+        "theta": -2.93
+      }
+    },
+    {
+      "t": 116.0,
+      "state": "COVER",
+      "coverage": 0.5079,
+      "battery_pct": 98.69,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.817,
+        "y": 0.401,
+        "theta": -2.819
+      }
+    },
+    {
+      "t": 117.0,
+      "state": "COVER",
+      "coverage": 0.5126,
+      "battery_pct": 98.68,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.849,
+        "y": 0.389,
+        "theta": -2.708
+      }
+    },
+    {
+      "t": 118.0,
+      "state": "COVER",
+      "coverage": 0.5173,
+      "battery_pct": 98.66,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.879,
+        "y": 0.377,
+        "theta": -2.597
+      }
+    },
+    {
+      "t": 119.0,
+      "state": "COVER",
+      "coverage": 0.522,
+      "battery_pct": 98.65,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.909,
+        "y": 0.365,
+        "theta": -2.486
+      }
+    },
+    {
+      "t": 120.0,
+      "state": "COVER",
+      "coverage": 0.5266,
+      "battery_pct": 98.64,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.938,
+        "y": 0.354,
+        "theta": -2.375
+      }
+    },
+    {
+      "t": 121.0,
+      "state": "COVER",
+      "coverage": 0.5313,
+      "battery_pct": 98.63,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.966,
+        "y": 0.343,
+        "theta": -2.264
+      }
+    },
+    {
+      "t": 122.0,
+      "state": "COVER",
+      "coverage": 0.536,
+      "battery_pct": 98.62,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.993,
+        "y": 0.332,
+        "theta": -2.152
+      }
+    },
+    {
+      "t": 123.0,
+      "state": "COVER",
+      "coverage": 0.5407,
+      "battery_pct": 98.61,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.019,
+        "y": 0.322,
+        "theta": -2.041
+      }
+    },
+    {
+      "t": 124.0,
+      "state": "COVER",
+      "coverage": 0.5454,
+      "battery_pct": 98.6,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.043,
+        "y": 0.313,
+        "theta": -1.93
+      }
+    },
+    {
+      "t": 125.0,
+      "state": "COVER",
+      "coverage": 0.55,
+      "battery_pct": 98.58,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.066,
+        "y": 0.304,
+        "theta": -1.819
+      }
+    },
+    {
+      "t": 126.0,
+      "state": "COVER",
+      "coverage": 0.5547,
+      "battery_pct": 98.57,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.087,
+        "y": 0.295,
+        "theta": -1.708
+      }
+    },
+    {
+      "t": 127.0,
+      "state": "COVER",
+      "coverage": 0.5594,
+      "battery_pct": 98.56,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.107,
+        "y": 0.288,
+        "theta": -1.597
+      }
+    },
+    {
+      "t": 128.0,
+      "state": "COVER",
+      "coverage": 0.5641,
+      "battery_pct": 98.55,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.125,
+        "y": 0.281,
+        "theta": -1.486
+      }
+    },
+    {
+      "t": 129.0,
+      "state": "COVER",
+      "coverage": 0.5688,
+      "battery_pct": 98.54,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.14,
+        "y": 0.274,
+        "theta": -1.375
+      }
+    },
+    {
+      "t": 130.0,
+      "state": "COVER",
+      "coverage": 0.5734,
+      "battery_pct": 98.53,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.154,
+        "y": 0.268,
+        "theta": -1.264
+      }
+    },
+    {
+      "t": 131.0,
+      "state": "COVER",
+      "coverage": 0.5781,
+      "battery_pct": 98.52,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.166,
+        "y": 0.263,
+        "theta": -1.152
+      }
+    },
+    {
+      "t": 132.0,
+      "state": "COVER",
+      "coverage": 0.5828,
+      "battery_pct": 98.51,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.176,
+        "y": 0.259,
+        "theta": -1.041
+      }
+    },
+    {
+      "t": 133.0,
+      "state": "COVER",
+      "coverage": 0.5875,
+      "battery_pct": 98.49,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.184,
+        "y": 0.256,
+        "theta": -0.93
+      }
+    },
+    {
+      "t": 134.0,
+      "state": "COVER",
+      "coverage": 0.5922,
+      "battery_pct": 98.48,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.189,
+        "y": 0.253,
+        "theta": -0.819
+      }
+    },
+    {
+      "t": 135.0,
+      "state": "COVER",
+      "coverage": 0.5968,
+      "battery_pct": 98.47,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.192,
+        "y": 0.251,
+        "theta": -0.708
+      }
+    },
+    {
+      "t": 136.0,
+      "state": "COVER",
+      "coverage": 0.6015,
+      "battery_pct": 98.46,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.192,
+        "y": 0.25,
+        "theta": -0.597
+      }
+    },
+    {
+      "t": 137.0,
+      "state": "COVER",
+      "coverage": 0.6062,
+      "battery_pct": 98.45,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.191,
+        "y": 0.25,
+        "theta": -0.486
+      }
+    },
+    {
+      "t": 138.0,
+      "state": "COVER",
+      "coverage": 0.6109,
+      "battery_pct": 98.44,
+      "suction_pct": 100,
+      "pose": {
+        "x": 2.186,
+        "y": 0.251,
+        "theta": -0.375
+      }
+    },
+    {
+      "t": 139.0,
+      "state": "COVER",
+      "coverage": 0.6156,
+      "battery_pct": 98.43,
+      "suction_pct": 100,
+      "pose": {
+        "x": 2.18,
+        "y": 0.252,
+        "theta": -0.264
+      }
+    },
+    {
+      "t": 140.0,
+      "state": "COVER",
+      "coverage": 0.6203,
+      "battery_pct": 98.41,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.171,
+        "y": 0.255,
+        "theta": -0.152
+      }
+    },
+    {
+      "t": 141.0,
+      "state": "COVER",
+      "coverage": 0.6249,
+      "battery_pct": 98.4,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.159,
+        "y": 0.259,
+        "theta": -0.041
+      }
+    },
+    {
+      "t": 142.0,
+      "state": "COVER",
+      "coverage": 0.6296,
+      "battery_pct": 98.39,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.145,
+        "y": 0.263,
+        "theta": 0.07
+      }
+    },
+    {
+      "t": 143.0,
+      "state": "COVER",
+      "coverage": 0.6343,
+      "battery_pct": 98.38,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.128,
+        "y": 0.269,
+        "theta": 0.181
+      }
+    },
+    {
+      "t": 144.0,
+      "state": "COVER",
+      "coverage": 0.639,
+      "battery_pct": 98.37,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.11,
+        "y": 0.275,
+        "theta": 0.292
+      }
+    },
+    {
+      "t": 145.0,
+      "state": "COVER",
+      "coverage": 0.6437,
+      "battery_pct": 98.36,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.088,
+        "y": 0.282,
+        "theta": 0.403
+      }
+    },
+    {
+      "t": 146.0,
+      "state": "COVER",
+      "coverage": 0.6483,
+      "battery_pct": 98.35,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.065,
+        "y": 0.291,
+        "theta": 0.514
+      }
+    },
+    {
+      "t": 147.0,
+      "state": "COVER",
+      "coverage": 0.653,
+      "battery_pct": 98.34,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.039,
+        "y": 0.3,
+        "theta": 0.625
+      }
+    },
+    {
+      "t": 148.0,
+      "state": "COVER",
+      "coverage": 0.6577,
+      "battery_pct": 98.32,
+      "suction_pct": 55,
+      "pose": {
+        "x": 2.011,
+        "y": 0.311,
+        "theta": 0.736
+      }
+    },
+    {
+      "t": 149.0,
+      "state": "COVER",
+      "coverage": 0.6624,
+      "battery_pct": 98.31,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.98,
+        "y": 0.322,
+        "theta": 0.848
+      }
+    },
+    {
+      "t": 150.0,
+      "state": "COVER",
+      "coverage": 0.6671,
+      "battery_pct": 98.3,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.948,
+        "y": 0.335,
+        "theta": 0.959
+      }
+    },
+    {
+      "t": 151.0,
+      "state": "COVER",
+      "coverage": 0.6717,
+      "battery_pct": 98.29,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.914,
+        "y": 0.349,
+        "theta": 1.07
+      }
+    },
+    {
+      "t": 152.0,
+      "state": "COVER",
+      "coverage": 0.6764,
+      "battery_pct": 98.28,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.877,
+        "y": 0.363,
+        "theta": 1.181
+      }
+    },
+    {
+      "t": 153.0,
+      "state": "COVER",
+      "coverage": 0.6811,
+      "battery_pct": 98.27,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.839,
+        "y": 0.379,
+        "theta": 1.292
+      }
+    },
+    {
+      "t": 154.0,
+      "state": "COVER",
+      "coverage": 0.6858,
+      "battery_pct": 98.26,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.8,
+        "y": 0.396,
+        "theta": 1.403
+      }
+    },
+    {
+      "t": 155.0,
+      "state": "COVER",
+      "coverage": 0.6905,
+      "battery_pct": 98.24,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.758,
+        "y": 0.414,
+        "theta": 1.514
+      }
+    },
+    {
+      "t": 156.0,
+      "state": "COVER",
+      "coverage": 0.6952,
+      "battery_pct": 98.23,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.716,
+        "y": 0.433,
+        "theta": 1.625
+      }
+    },
+    {
+      "t": 157.0,
+      "state": "COVER",
+      "coverage": 0.6998,
+      "battery_pct": 98.22,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.672,
+        "y": 0.452,
+        "theta": 1.736
+      }
+    },
+    {
+      "t": 158.0,
+      "state": "COVER",
+      "coverage": 0.7045,
+      "battery_pct": 98.21,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.627,
+        "y": 0.473,
+        "theta": 1.848
+      }
+    },
+    {
+      "t": 159.0,
+      "state": "COVER",
+      "coverage": 0.7092,
+      "battery_pct": 98.2,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.581,
+        "y": 0.495,
+        "theta": 1.959
+      }
+    },
+    {
+      "t": 160.0,
+      "state": "COVER",
+      "coverage": 0.7139,
+      "battery_pct": 98.19,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.534,
+        "y": 0.518,
+        "theta": 2.07
+      }
+    },
+    {
+      "t": 161.0,
+      "state": "COVER",
+      "coverage": 0.7186,
+      "battery_pct": 98.18,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.487,
+        "y": 0.542,
+        "theta": 2.181
+      }
+    },
+    {
+      "t": 162.0,
+      "state": "COVER",
+      "coverage": 0.7232,
+      "battery_pct": 98.17,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.439,
+        "y": 0.567,
+        "theta": 2.292
+      }
+    },
+    {
+      "t": 163.0,
+      "state": "COVER",
+      "coverage": 0.7279,
+      "battery_pct": 98.15,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.391,
+        "y": 0.593,
+        "theta": 2.403
+      }
+    },
+    {
+      "t": 164.0,
+      "state": "COVER",
+      "coverage": 0.7326,
+      "battery_pct": 98.14,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.343,
+        "y": 0.62,
+        "theta": 2.514
+      }
+    },
+    {
+      "t": 165.0,
+      "state": "COVER",
+      "coverage": 0.7373,
+      "battery_pct": 98.13,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.294,
+        "y": 0.648,
+        "theta": 2.625
+      }
+    },
+    {
+      "t": 166.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.742,
+      "battery_pct": 98.12,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.246,
+        "y": 0.677,
+        "theta": 2.736
+      }
+    },
+    {
+      "t": 167.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7466,
+      "battery_pct": 98.11,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.198,
+        "y": 0.707,
+        "theta": 2.848
+      }
+    },
+    {
+      "t": 168.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7513,
+      "battery_pct": 98.1,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.151,
+        "y": 0.737,
+        "theta": 2.959
+      }
+    },
+    {
+      "t": 169.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.756,
+      "battery_pct": 98.09,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.105,
+        "y": 0.769,
+        "theta": 3.07
+      }
+    },
+    {
+      "t": 170.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7607,
+      "battery_pct": 98.07,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.059,
+        "y": 0.801,
+        "theta": -3.102
+      }
+    },
+    {
+      "t": 171.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7654,
+      "battery_pct": 98.06,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.015,
+        "y": 0.834,
+        "theta": -2.991
+      }
+    },
+    {
+      "t": 172.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7701,
+      "battery_pct": 98.05,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.972,
+        "y": 0.868,
+        "theta": -2.88
+      }
+    },
+    {
+      "t": 173.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7747,
+      "battery_pct": 98.04,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.93,
+        "y": 0.903,
+        "theta": -2.769
+      }
+    },
+    {
+      "t": 174.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7794,
+      "battery_pct": 98.03,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.89,
+        "y": 0.938,
+        "theta": -2.658
+      }
+    },
+    {
+      "t": 175.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7841,
+      "battery_pct": 98.02,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.851,
+        "y": 0.974,
+        "theta": -2.547
+      }
+    },
+    {
+      "t": 176.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7888,
+      "battery_pct": 98.01,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.815,
+        "y": 1.011,
+        "theta": -2.436
+      }
+    },
+    {
+      "t": 177.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7935,
+      "battery_pct": 98.0,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.78,
+        "y": 1.048,
+        "theta": -2.324
+      }
+    },
+    {
+      "t": 178.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.7981,
+      "battery_pct": 97.98,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.748,
+        "y": 1.086,
+        "theta": -2.213
+      }
+    },
+    {
+      "t": 179.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8028,
+      "battery_pct": 97.97,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.718,
+        "y": 1.125,
+        "theta": -2.102
+      }
+    },
+    {
+      "t": 180.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8075,
+      "battery_pct": 97.96,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.691,
+        "y": 1.164,
+        "theta": -1.991
+      }
+    },
+    {
+      "t": 181.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8122,
+      "battery_pct": 97.95,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.667,
+        "y": 1.204,
+        "theta": -1.88
+      }
+    },
+    {
+      "t": 182.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8169,
+      "battery_pct": 97.94,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.645,
+        "y": 1.244,
+        "theta": -1.769
+      }
+    },
+    {
+      "t": 183.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8215,
+      "battery_pct": 97.93,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.626,
+        "y": 1.284,
+        "theta": -1.658
+      }
+    },
+    {
+      "t": 184.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8262,
+      "battery_pct": 97.92,
+      "suction_pct": 100,
+      "pose": {
+        "x": 0.61,
+        "y": 1.325,
+        "theta": -1.547
+      }
+    },
+    {
+      "t": 185.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8309,
+      "battery_pct": 97.91,
+      "suction_pct": 100,
+      "pose": {
+        "x": 0.597,
+        "y": 1.366,
+        "theta": -1.436
+      }
+    },
+    {
+      "t": 186.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8356,
+      "battery_pct": 97.89,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.587,
+        "y": 1.407,
+        "theta": -1.324
+      }
+    },
+    {
+      "t": 187.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8403,
+      "battery_pct": 97.88,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.58,
+        "y": 1.449,
+        "theta": -1.213
+      }
+    },
+    {
+      "t": 188.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.845,
+      "battery_pct": 97.87,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.577,
+        "y": 1.491,
+        "theta": -1.102
+      }
+    },
+    {
+      "t": 189.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8496,
+      "battery_pct": 97.86,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.577,
+        "y": 1.533,
+        "theta": -0.991
+      }
+    },
+    {
+      "t": 190.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8543,
+      "battery_pct": 97.85,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.58,
+        "y": 1.575,
+        "theta": -0.88
+      }
+    },
+    {
+      "t": 191.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.859,
+      "battery_pct": 97.84,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.587,
+        "y": 1.617,
+        "theta": -0.769
+      }
+    },
+    {
+      "t": 192.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8637,
+      "battery_pct": 97.83,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.597,
+        "y": 1.659,
+        "theta": -0.658
+      }
+    },
+    {
+      "t": 193.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8684,
+      "battery_pct": 97.81,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.61,
+        "y": 1.701,
+        "theta": -0.547
+      }
+    },
+    {
+      "t": 194.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.873,
+      "battery_pct": 97.8,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.627,
+        "y": 1.743,
+        "theta": -0.436
+      }
+    },
+    {
+      "t": 195.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8777,
+      "battery_pct": 97.79,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.647,
+        "y": 1.785,
+        "theta": -0.324
+      }
+    },
+    {
+      "t": 196.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8824,
+      "battery_pct": 97.78,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.671,
+        "y": 1.826,
+        "theta": -0.213
+      }
+    },
+    {
+      "t": 197.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8871,
+      "battery_pct": 97.77,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.698,
+        "y": 1.868,
+        "theta": -0.102
+      }
+    },
+    {
+      "t": 198.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8918,
+      "battery_pct": 97.76,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.727,
+        "y": 1.909,
+        "theta": 0.009
+      }
+    },
+    {
+      "t": 199.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.8964,
+      "battery_pct": 97.75,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.761,
+        "y": 1.949,
+        "theta": 0.12
+      }
+    },
+    {
+      "t": 200.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9011,
+      "battery_pct": 97.74,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.797,
+        "y": 1.99,
+        "theta": 0.231
+      }
+    },
+    {
+      "t": 201.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9058,
+      "battery_pct": 97.72,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.836,
+        "y": 2.03,
+        "theta": 0.342
+      }
+    },
+    {
+      "t": 202.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9105,
+      "battery_pct": 97.71,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.878,
+        "y": 2.069,
+        "theta": 0.453
+      }
+    },
+    {
+      "t": 203.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9152,
+      "battery_pct": 97.7,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.922,
+        "y": 2.108,
+        "theta": 0.564
+      }
+    },
+    {
+      "t": 204.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9198,
+      "battery_pct": 97.69,
+      "suction_pct": 55,
+      "pose": {
+        "x": 0.97,
+        "y": 2.147,
+        "theta": 0.676
+      }
+    },
+    {
+      "t": 205.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9245,
+      "battery_pct": 97.68,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.019,
+        "y": 2.184,
+        "theta": 0.787
+      }
+    },
+    {
+      "t": 206.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9292,
+      "battery_pct": 97.67,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.071,
+        "y": 2.221,
+        "theta": 0.898
+      }
+    },
+    {
+      "t": 207.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9339,
+      "battery_pct": 97.66,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.125,
+        "y": 2.258,
+        "theta": 1.009
+      }
+    },
+    {
+      "t": 208.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9386,
+      "battery_pct": 97.64,
+      "suction_pct": 100,
+      "pose": {
+        "x": 1.181,
+        "y": 2.293,
+        "theta": 1.12
+      }
+    },
+    {
+      "t": 209.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9433,
+      "battery_pct": 97.63,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.239,
+        "y": 2.328,
+        "theta": 1.231
+      }
+    },
+    {
+      "t": 210.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9479,
+      "battery_pct": 97.62,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.298,
+        "y": 2.362,
+        "theta": 1.342
+      }
+    },
+    {
+      "t": 211.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9526,
+      "battery_pct": 97.61,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.359,
+        "y": 2.395,
+        "theta": 1.453
+      }
+    },
+    {
+      "t": 212.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9573,
+      "battery_pct": 97.6,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.421,
+        "y": 2.427,
+        "theta": 1.564
+      }
+    },
+    {
+      "t": 213.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.962,
+      "battery_pct": 97.59,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.484,
+        "y": 2.458,
+        "theta": 1.676
+      }
+    },
+    {
+      "t": 214.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9667,
+      "battery_pct": 97.58,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.548,
+        "y": 2.488,
+        "theta": 1.787
+      }
+    },
+    {
+      "t": 215.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.9713,
+      "battery_pct": 97.57,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.612,
+        "y": 2.517,
+        "theta": 1.898
+      }
+    },
+    {
+      "t": 216.0,
+      "state": "SPOT_CLEAN",
+      "coverage": 0.976,
+      "battery_pct": 97.55,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.676,
+        "y": 2.545,
+        "theta": 2.009
+      }
+    },
+    {
+      "t": 217.0,
+      "state": "RETURN_TO_DOCK",
+      "coverage": 0.9793,
+      "battery_pct": 97.54,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.741,
+        "y": 2.568,
+        "theta": 2.12
+      }
+    },
+    {
+      "t": 218.0,
+      "state": "RETURN_TO_DOCK",
+      "coverage": 0.9793,
+      "battery_pct": 97.53,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.804,
+        "y": 2.583,
+        "theta": 2.231
+      }
+    },
+    {
+      "t": 219.0,
+      "state": "RETURN_TO_DOCK",
+      "coverage": 0.9793,
+      "battery_pct": 97.52,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.866,
+        "y": 2.596,
+        "theta": 2.342
+      }
+    },
+    {
+      "t": 220.0,
+      "state": "RETURN_TO_DOCK",
+      "coverage": 0.9793,
+      "battery_pct": 97.51,
+      "suction_pct": 55,
+      "pose": {
+        "x": 1.927,
+        "y": 2.607,
+        "theta": 2.453
+      }
+    },
+    {
+      "t": 221.0,
+      "state": "DOCKING",
+      "coverage": 0.9793,
+      "battery_pct": 97.5,
+      "suction_pct": 0,
+      "pose": {
+        "x": 1.986,
+        "y": 2.617,
+        "theta": 2.564
+      }
+    },
+    {
+      "t": 222.0,
+      "state": "DOCKING",
+      "coverage": 0.9793,
+      "battery_pct": 97.49,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.044,
+        "y": 2.626,
+        "theta": 2.676
+      }
+    },
+    {
+      "t": 223.0,
+      "state": "DOCKING",
+      "coverage": 0.9793,
+      "battery_pct": 97.47,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.1,
+        "y": 2.634,
+        "theta": 2.787
+      }
+    },
+    {
+      "t": 224.0,
+      "state": "DOCKING",
+      "coverage": 0.9793,
+      "battery_pct": 97.46,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.154,
+        "y": 2.64,
+        "theta": 2.898
+      }
+    },
+    {
+      "t": 225.0,
+      "state": "DOCKING",
+      "coverage": 0.9793,
+      "battery_pct": 97.45,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.206,
+        "y": 2.645,
+        "theta": 3.009
+      }
+    },
+    {
+      "t": 226.0,
+      "state": "DOCKING",
+      "coverage": 0.9793,
+      "battery_pct": 97.44,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.256,
+        "y": 2.648,
+        "theta": 3.12
+      }
+    },
+    {
+      "t": 227.0,
+      "state": "DOCKED",
+      "coverage": 0.9793,
+      "battery_pct": 97.43,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.303,
+        "y": 2.65,
+        "theta": -3.052
+      }
+    },
+    {
+      "t": 228.0,
+      "state": "DOCKED",
+      "coverage": 0.9793,
+      "battery_pct": 97.42,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.347,
+        "y": 2.65,
+        "theta": -2.941
+      }
+    },
+    {
+      "t": 229.0,
+      "state": "DOCKED",
+      "coverage": 0.9793,
+      "battery_pct": 97.41,
+      "suction_pct": 0,
+      "pose": {
+        "x": 2.389,
+        "y": 2.649,
+        "theta": -2.83
+      }
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 # CHOTU service stack. Pick a profile:
 #   docker compose -f docker/docker-compose.yml --profile dev up -d           # dev shell (GUI + GPU)
 #   docker compose -f docker/docker-compose.yml --profile sim up              # Gazebo AtomQuest room
-#   docker compose -f docker/docker-compose.yml --profile twin up             # headless digital-twin benchmark
 #   docker compose -f docker/docker-compose.yml --profile robot up -d         # on the Raspberry Pi 4
 # Images carry explicit versions (CHOTU_VERSION) - never deploy :latest to a robot.
 name: chotu
@@ -14,7 +13,7 @@ services:
   dev:
     profiles: ["dev"]
     build: { context: .., dockerfile: docker/Dockerfile, target: dev, args: { ROS_DISTRO: "${ROS_DISTRO:-humble}" } }
-    image: chotu/dev:${CHOTU_VERSION:-2.0.0}
+    image: chotu/dev:${CHOTU_VERSION:-3.0.0}
     network_mode: host           # simplest reliable DDS discovery
     ipc: host
     environment:
@@ -34,7 +33,7 @@ services:
 
   sim:
     profiles: ["sim"]
-    image: chotu/dev:${CHOTU_VERSION:-2.0.0}
+    image: chotu/dev:${CHOTU_VERSION:-3.0.0}
     build: { context: .., dockerfile: docker/Dockerfile, target: dev }
     network_mode: host
     environment:
@@ -49,19 +48,10 @@ services:
                source install/setup.bash &&
                ros2 launch chotu_bringup sim.launch.py vision:=false rviz:=true"
 
-  twin:
-    profiles: ["twin"]
-    build: { context: .., dockerfile: docker/Dockerfile.sim }
-    image: chotu/twin:${CHOTU_VERSION:-2.0.0}
-    volumes:
-      - ../bot_simulation/simulation_screenshot_screen_recording:/app/bot_simulation/simulation_screenshot_screen_recording
-    command: ["python", "bot_simulation/run_simulation.py", "--benchmark", "20", "--headless",
-              "--json", "bot_simulation/simulation_screenshot_screen_recording/benchmark_20_rooms.json"]
-
   robot:
     profiles: ["robot"]
     build: { context: .., dockerfile: docker/Dockerfile, target: runtime }
-    image: ${REGISTRY:-chotu}/runtime:${CHOTU_VERSION:-2.0.0}
+    image: ${REGISTRY:-chotu}/runtime:${CHOTU_VERSION:-3.0.0}
     network_mode: host
     restart: unless-stopped
     environment:
@@ -75,7 +65,7 @@ services:
   perception:
     profiles: ["robot", "gpu"]
     build: { context: .., dockerfile: docker/Dockerfile, target: perception }
-    image: ${REGISTRY:-chotu}/perception:${CHOTU_VERSION:-2.0.0}
+    image: ${REGISTRY:-chotu}/perception:${CHOTU_VERSION:-3.0.0}
     network_mode: host
     restart: unless-stopped
     environment:

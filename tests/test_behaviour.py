@@ -86,3 +86,13 @@ def test_mock_detector_fov_and_debris_ahead():
     assert {d.label for d in out} == {"dust", "sock"}
     assert debris_ahead(out, pose) == 1
     assert debris_ahead([Detection("dust", "suck", 1, 0.3, 0.5)], pose) == 0
+
+
+def test_no_go_zone_blocks_planning():
+    from chotu_core.occupancy_grid import OccupancyGrid
+    from chotu_core.path_planner import GridPlanner
+    g = OccupancyGrid(3, 3, 0.05)
+    g.mark_rect(1.2, 0.0, 1.8, 2.4)            # wall-like no-go strip with a gap at the top
+    pts = GridPlanner(g, 0.19).plan(0.5, 0.5, 2.5, 0.5)
+    assert pts is not None
+    assert all(not (1.2 <= x <= 1.8 and y <= 2.4) for x, y in pts)

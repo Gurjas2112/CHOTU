@@ -1,0 +1,45 @@
+# Backend + PostgreSQL.
+#   sample data, no database:
+#     docker compose -f backend/docker-compose.yml up --build
+#   PostgreSQL (schema from migrations/, seeded from sample_data/, API reads the db):
+#     CHOTU_STORE=sql docker compose -f backend/docker-compose.yml --profile db up --build
+services:
+  api:
+    build: .
+    image: chotu/backend:1.0.0
+    ports: ["${CHOTU_API_PORT:-8000}:8000"]
+    environment:
+      CHOTU_STORE: ${CHOTU_STORE:-sample}
+      DATABASE_URL: postgresql+psycopg://chotu:chotu@db:5432/chotu
+      CHOTU_ROBOT_LINK: ${CHOTU_ROBOT_LINK:-demo}
+      CHOTU_API_KEY: ${CHOTU_API_KEY:-}
+    depends_on:       # only active with --profile db: start once the db is seeded
+      seed: { condition: service_completed_successfully, required: false }
+
+  db:
+    profiles: ["db"]
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: chotu
+      POSTGRES_PASSWORD: chotu
+      POSTGRES_DB: chotu
+    ports: ["${CHOTU_DB_PORT:-5432}:5432"]      # change if a local PostgreSQL already uses 5432
+    volumes:
+      - chotu_pg:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d:ro    # 001_init.sql runs on first start
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chotu -d chotu"]
+      interval: 5s
+      retries: 10
+
+  seed:
+    profiles: ["db"]
+    image: chotu/backend:1.0.0
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      DATABASE_URL: postgresql+psycopg://chotu:chotu@db:5432/chotu
+    command: ["python", "-m", "chotu_api.db.seed"]
+    restart: "no"
+
+volumes:
+  chotu_pg:

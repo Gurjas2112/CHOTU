@@ -1,230 +1,252 @@
 # CHOTU: Compact Home Operations & Tidying Unit
 
-**An autonomous floor-cleaning robot. 🏆 People's Choice Award and Top 10 finalist at AtomQuest 2025 (Atomberg).**
+**An autonomous floor-cleaning robot, from competition prototype to a full-stack engineering system.**
+🏆 *People's Choice Award and Top 10 finalist, AtomQuest 2025 (Atomberg Technologies).*
 
 [![CI](https://github.com/Gurjas2112/CHOTU/actions/workflows/ci.yml/badge.svg)](https://github.com/Gurjas2112/CHOTU/actions/workflows/ci.yml)
 ![ROS 2 Humble](https://img.shields.io/badge/ROS%202-Humble-22314E?logo=ros)
+![Gazebo](https://img.shields.io/badge/Sim-Gazebo%20Fortress-F58113)
 ![ESP32-S3](https://img.shields.io/badge/MCU-ESP32--S3-E7352C?logo=espressif)
 ![Raspberry Pi 4](https://img.shields.io/badge/SBC-Raspberry%20Pi%204-C51A4A?logo=raspberrypi)
-![YOLOv8n](https://img.shields.io/badge/Vision-YOLOv8n-00FFFF)
+![Flutter](https://img.shields.io/badge/App-Flutter-02569B?logo=flutter)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi)
+![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-4169E1?logo=postgresql)
+![CadQuery](https://img.shields.io/badge/CAD-CadQuery-1F6FEB)
+![KiCad netlist](https://img.shields.io/badge/PCB-SKiDL%20%2F%20KiCad-314CB0?logo=kicad)
 ![Docker](https://img.shields.io/badge/Deploy-Docker-2496ED?logo=docker)
-![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python)
 ![License MIT](https://img.shields.io/badge/License-MIT-green)
 
-CHOTU started as Team **Hack O' Giants**' entry to **AtomQuest 2025 – The Ultimate Tech Competition** by **Atomberg**. The brief was a robot that cleans a randomised challenge room (dust, paper, hair, wrappers and wire strands among unknown obstacles) in **5 minutes** and **returns to its dock**. The December 2025 prototype was a reactive bump-and-turn bot that won the **People's Choice Award** at the Grand Finale.
-
-**v2 (this repository) makes it truly autonomous:**
-* Hybrid **Raspberry Pi 4 (ROS 2) + ESP32-S3 (real-time)** architecture
-* Online mapping with **boustrophedon coverage**, **A\*** detours and a time-aware **return-to-dock**
-* **YOLOv8n "suck / avoid" vision** (based on the VLM-Vac paper)
-* Adaptive suction
-* A **digital twin** that runs the *same* autonomy code as the robot
-* Full documentation for setup, configuration, testing and deployment
+> **Project status.** v3 is a **prototype on demo data**. The AtomQuest robot was built and demonstrated in December 2025. The v3 hardware (a Pi 4 + ESP32-S3 hybrid with a carrier PCB and a printed body) is fully designed but **not yet bought or assembled**. Every v3 result below comes from simulation or from software running against demo data, and each one says which.
 
 <p align="center">
-  <img src="bot_simulation/simulation_screenshot_screen_recording/05_boustrophedon_coverage.png" width="92%" alt="CHOTU digital twin HUD"/>
+  <img src="bot_simulation/gazebo_recording/03_cover.png" width="49%" alt="ROS 2 stack cleaning in Gazebo"/>
+  <img src="bot_3d_printing/flow/06_final_assembly_with_dock.png" width="49%" alt="3D-printable body on its dock"/>
 </p>
 
 ---
 
-## Table of contents
-1. [Highlights](#1-highlights)
-2. [Achievements](#2-achievements)
-3. [The problem](#3-the-problem-atomquest-2025)
-4. [System architecture](#4-system-architecture)
-5. [Autonomy stack](#5-autonomy-stack)
-6. [Simulation and results](#6-simulation-and-results)
+## Contents
+1. [For recruiters: skills and evidence](#1-for-recruiters-skills-and-evidence)
+2. [Results in numbers](#2-results-in-numbers)
+3. [Demo gallery](#3-demo-gallery)
+4. [Achievements](#4-achievements)
+5. [System architecture](#5-system-architecture)
+6. [Engineering decisions](#6-engineering-decisions)
 7. [Repository structure](#7-repository-structure)
 8. [Quick start](#8-quick-start)
-9. [Documentation](#9-documentation)
-10. [Tech stack and skills](#10-tech-stack-and-skills-demonstrated)
+9. [Quality: tests and CI](#9-quality-tests-and-ci)
+10. [Documentation](#10-documentation)
 11. [Team and acknowledgements](#11-team-and-acknowledgements)
 
 ---
 
-## 1. Highlights
+## 1. For recruiters: skills and evidence
 
-| | |
-|---|---|
-| 🧠 **Single source of autonomy** | `chotu_core` (pure Python + numpy) is imported by the ROS 2 node *and* the simulator. Every simulated room tests the robot code. |
-| 🗺️ **Mapping + coverage** | Log-odds occupancy grid from 3× HC-SR04 (cone-aware) + VL53L0X ToF. Lane-biased boustrophedon, A\* detours, frontier fill. |
-| 🏠 **Finale-rule aware** | Starts on the dock, replans its home ETA every second and leaves with a safety margin. Docks within ~3 cm (IR beacon). |
-| 👁️ **Suck / avoid AI vision** | YOLOv8n classes split into *vacuum it* (boost suction, spot clean) and *avoid it* (cables, socks, liquids become map keep-outs). Cable incidents drop from 38 to 1 over 10 rooms. |
-| ⚡ **Real-time safety on the MCU** | ESP32-S3 runs 50 Hz wheel PID and a 300 ms watchdog. Bump, cliff and ToF stops work even if Linux hangs. |
-| 🔌 **Shared wire protocol** | COBS + CRC16 frames, tested against the same byte vectors in Python (pytest) and C++ (g++, 322 checks). |
-| 🐳 **Production-style DevOps** | Multi-stage versioned Docker images (dev / runtime / perception / twin), compose profiles, dev container, arm64 buildx, GitHub Actions CI. |
-| 🚀 **Futuristic, scalable twin** | Neon mission-control HUD, 4-robot fleet dashboard, randomised-room benchmarks, AI ablation charts, all recorded to MP4. |
+The repository covers the whole product: firmware, robotics software, simulation, mobile app, backend, PCB and mechanical design. Each row points to working code and the test that checks it.
 
-## 2. Achievements
+| Role / skill area | What was built | Where to look |
+|---|---|---|
+| **Robotics software (ROS 2)** | Mission state machine, log-odds occupancy mapping, boustrophedon coverage, A* on a two-tier cost map, time-aware return to dock, no-go zones, operator dock command | [`chotu_core/`](chotu_core/), [`ros2_ws/`](ros2_ws/) |
+| **Simulation** | Full ROS 2 stack in Gazebo Fortress, headless in Docker. IMU-fused odometry. Overhead-camera mission recorder. | [`bot_simulation/`](bot_simulation/) |
+| **Embedded (ESP32-S3)** | 50 Hz wheel PID, ISR encoders, safety supervisor with a 300 ms watchdog, TB6612 STBY hardware cut, COBS + CRC16 binary protocol | [`firmware/`](firmware/), 322 host tests |
+| **Electronics / PCB** | Carrier board generated from code (SKiDL → KiCad netlist, 54 parts, 45 nets), six schematic sheets, design-rule check, Protoflow/JLCPCB hand-off | [`hardware/pcb/`](hardware/pcb/) |
+| **Mechanical CAD / DFM** | 28-part parametric CadQuery body with an automatic FDM review (watertight, bed fit, overhangs, bridges), STEP/STL/DXF, assembly video | [`bot_3d_printing/`](bot_3d_printing/) |
+| **Mobile (Flutter)** | Robot control app: live map, no-go zone drawing, schedules, alerts, mission reports; rosbridge and REST clients | [`mobile_app/`](mobile_app/) |
+| **Backend (Python)** | FastAPI fleet API, REST + versioned WebSocket protocol, repository pattern (sample JSON ↔ PostgreSQL), rosbridge client with reconnect, OpenAPI docs, dashboard | [`backend/`](backend/) |
+| **AI / computer vision** | YOLOv8n "suck / avoid" classes from the VLM-Vac paper; detections become map keep-outs or trigger suction BOOST | [`chotu_core/perception.py`](chotu_core/perception.py), [`ros2_ws/src/chotu_perception`](ros2_ws/src/chotu_perception) |
+| **DevOps** | Multi-stage versioned Docker images, compose profiles, dev container, arm64 deploy script, GitHub Actions running 5 jobs | [`docker/`](docker/), [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
+| **Engineering judgement** | Cost and sustainability review with cited sources: reuse vs buy, motor and MOSFET selection, what *not* to build (VLM, agent layer) | [`docs/ATOMBERG_ENGINEERING_REVIEW.md`](docs/ATOMBERG_ENGINEERING_REVIEW.md) |
+
+## 2. Results in numbers
+
+| Metric | Value | Source |
+|---|---|---|
+| Gazebo mission, full ROS 2 stack | **Docked at 226.5 s** of a 300 s budget, **97.9 %** coverage estimate, **0** stuck recoveries | [`gazebo_mission_metrics.json`](bot_simulation/gazebo_recording/gazebo_mission_metrics.json) |
+| Randomised rooms, v2 benchmark | **40/40 docked**, mean projected AtomQuest score **77.6 / 100** | v2 digital twin (commit `9757b23`), served as sample data by [`backend/`](backend/) |
+| AI-vision ablation, 10 rooms | Cable tangles **38 → 1**; score **63.9 → 78.8** | v2 digital twin |
+| Energy | Adaptive suction saves **11–20 %**; ≈ 3.4 Wh per 5-minute mission | v2 digital twin |
+| Printed body | **28/28** parts pass the automatic FDM review; ≈ 1 kg PETG, ≈ 92 h | [`review_report.md`](bot_3d_printing/review_report.md) |
+| Carrier PCB | **0** design-rule errors; every GPIO matches the firmware, checked in CI | [`erc_report.txt`](hardware/pcb/erc_report.txt), [`test_pcb_netlist.py`](tests/test_pcb_netlist.py) |
+| Bill of materials | **₹13,693** total, of which ₹3,694 is reused from the competition build | [`docs/HARDWARE_SOFTWARE_REQUIREMENTS.md`](docs/HARDWARE_SOFTWARE_REQUIREMENTS.md) |
+| Automated checks | **388** tests: 32 core/PCB + 23 backend + 11 Flutter + 322 firmware | [§9](#9-quality-tests-and-ci) |
+
+## 3. Demo gallery
+
+All media below comes from demo data or simulation.
+
+### Gazebo simulation: full mission, ROS 2 stack
+[▶ `chotu_gazebo_full_mission.mp4`](bot_simulation/gazebo_recording/chotu_gazebo_full_mission.mp4) (229.7 s, real-time)
+
+| Undock | Coverage | Return (A*) | Docked |
+|---|---|---|---|
+| ![](bot_simulation/gazebo_recording/01_undock.png) | ![](bot_simulation/gazebo_recording/03_cover.png) | ![](bot_simulation/gazebo_recording/05_return_to_dock.png) | ![](bot_simulation/gazebo_recording/07_docked.png) |
+
+### Mobile app (Flutter, demo robot)
+[▶ `chotu_app_full_demo.mp4`](mobile_app/app_screenshot_screen_recording/chotu_app_full_demo.mp4) (64 s). All 17 flow screenshots are in [`mobile_app/app_screenshot_screen_recording/`](mobile_app/app_screenshot_screen_recording/).
 
 <p align="center">
-  <img src="essential_docs/achievement_pics/pic2.jpeg" height="300" alt="Team Hack O' Giants with CHOTU at the AtomQuest 2025 Grand Finale"/>
-  <img src="essential_docs/achievement_pics/pic1.jpeg" height="300" alt="Certificate of achievement and medal"/>
+  <img src="mobile_app/app_screenshot_screen_recording/02_home_docked_ready.png" width="19%"/>
+  <img src="mobile_app/app_screenshot_screen_recording/05_live_map_coverage.png" width="19%"/>
+  <img src="mobile_app/app_screenshot_screen_recording/07_no_go_zone_drawn.png" width="19%"/>
+  <img src="mobile_app/app_screenshot_screen_recording/14_docked_mission_complete.png" width="19%"/>
+  <img src="mobile_app/app_screenshot_screen_recording/16_mission_report_atomquest_score.png" width="19%"/>
 </p>
 
-* 🏆 **People's Choice Award**: audience-favourite innovation at the AtomQuest 2025 Grand Finale
-* 🎖️ **Top 10 finalist** (Certificate of Achievement from Atomberg's CEO and COO, plus a medal)
-* 🧑‍🏫 **Mentorship** from Atomberg industry experts and from Dr. Tejas Pramod Naik (COEP Tech)
-* 📜 **Certificates** for creativity, teamwork and technical excellence
-* 🏭 **AIC tour** of Atomberg's Innovation Center, meeting the leadership team including the CEO
+### 3D-printable body (CadQuery)
+[▶ `chotu_v3_cad_walkthrough.mp4`](bot_3d_printing/video/chotu_v3_cad_walkthrough.mp4) (14 s)
 
-> *"Excited to share that our team Hack O' Giants delivered a remarkable performance at AtomQuest 2025 – The Ultimate Tech Competition, organized by Atomberg … People's Choice Award for the audience-favorite innovation … Mentorship from industry experts … Certificates acknowledging our creativity, teamwork, and technical excellence … AIC Tour – an insightful visit to Atomberg's Innovation Center."*
-> — Gurjas Singh Gandhi on LinkedIn. The full post and all photos are in [`essential_docs/ACHIEVEMENTS.md`](essential_docs/ACHIEVEMENTS.md).
+| Phase 2: features | Exploded assembly | Print plates (220 mm bed) |
+|---|---|---|
+| ![](bot_3d_printing/flow/03_phase2_features_drive_cleaning.png) | ![](bot_3d_printing/flow/05_exploded_assembly.png) | ![](bot_3d_printing/flow/07_print_plates_220mm_bed.png) |
 
-## 3. The problem (AtomQuest 2025)
+### Carrier PCB and fleet backend
 
-| Rule (Round 3 brief) | How CHOTU v2 handles it |
+| Firmware connection schematic | Fleet dashboard (backend, sample data) |
 |---|---|
-| Room shape known in advance, obstacle and garbage placement random | Walls are an analytic band. Obstacles are mapped online. |
-| Start from and **return to the docking station**, or the attempt is incomplete | Mission FSM with A\* return, IR-beacon docking |
-| **5-minute** session, restarts cost time | Time-budget-aware return. Stuck recovery avoids manual restarts. |
-| Score: time 20 · efficiency per garbage type 25 · autonomy and avoidance 20 · battery 15 · container 10 · aesthetics 5 · cost 5 | `chotu_core/scoring.py` computes a live projection of this rubric |
-| Max 1.5 ft × 1.5 ft × 1 ft | Ø 34 cm × 22 cm |
+| ![](hardware/pcb/schematic/00_overview.png) | ![](backend/docs/fleet_dashboard.png) |
 
-## 4. System architecture
+## 4. Achievements
+
+<p align="center">
+  <img src="essential_docs/achievement_pics/pic2.jpeg" height="260" alt="Team Hack O' Giants with CHOTU at the AtomQuest 2025 Grand Finale"/>
+  <img src="essential_docs/achievement_pics/pic1.jpeg" height="260" alt="Certificate of achievement and medal"/>
+</p>
+
+* 🏆 **People's Choice Award**: the audience-favourite innovation at the AtomQuest 2025 Grand Finale, held at Atomberg's Innovation Center
+* 🎖️ **Top 10 finalist**: Certificate of Achievement from Atomberg's CEO and COO, plus a medal
+* 🧑‍🏫 **Mentorship** from Atomberg engineers and from Dr. Tejas Pramod Naik (COEP Technological University)
+
+The full story, the LinkedIn post and the photos are in [`docs/ACHIEVEMENTS.md`](docs/ACHIEVEMENTS.md).
+
+## 5. System architecture
 
 ```mermaid
 flowchart LR
-  CAM[Pi camera] --> YOLO[yolo_detector_node<br/>YOLOv8n suck/avoid]
-  YOLO --> MM[mission_manager_node<br/>chotu_core.CleaningMission]
-  BR[serial_bridge_node<br/>odom · ranges · IMU · bump/cliff] --> MM
-  MM -->|cmd_vel · suction| BR
-  BR <-->|UART · COBS+CRC16 · 50 Hz| ESP[ESP32-S3<br/>PID · ISRs · safety watchdog]
-  ESP --> DRV[L298N → BO motors + encoders]
-  ESP --> VAC[IRLZ44N → Bergmann vacuum + brushes]
-  S[3× HC-SR04 · VL53L0X · MPU6050 · SW-420 · 2× IR cliff] --> ESP
-  subgraph Pi4[Raspberry Pi 4 · ROS 2 Humble · Docker]
-    YOLO
-    MM
-    BR
+  subgraph Off-robot
+    APP[Flutter app]
+    API[FastAPI fleet backend] --- DB[(PostgreSQL)]
   end
+  subgraph Pi4["Raspberry Pi 4 - ROS 2 Humble (Docker)"]
+    RB[rosbridge :9090]
+    MM[mission_manager<br/>chotu_core autonomy]
+    YOLO[YOLOv8n suck/avoid]
+    BR[serial_bridge]
+  end
+  APP <-->|rosbridge JSON| RB
+  API <-->|rosbridge JSON| RB
+  APP <-->|REST + WebSocket| API
+  RB --- MM
+  YOLO --> MM
+  MM <--> BR
+  BR <-->|UART · COBS + CRC16 · 50 Hz| ESP[ESP32-S3<br/>PID · watchdog · safety]
+  ESP --> TB[TB6612FNG → BO motors + encoders]
+  ESP --> Q[IRLZ44N → Bergmann vacuum + brush]
+  S[3× HC-SR04 · VL53L0X · MPU6050 · SW-420 · 2× cliff IR · dock IR] --> ESP
 ```
 
-The full details (pin map, protocol table, ROS graph, FSM) are in [`essential_docs/ARCHITECTURE.md`](essential_docs/ARCHITECTURE.md).
+* **All autonomy runs on the robot.** The app and the backend are clients, so a mission finishes and the robot docks even with WiFi down.
+* **One autonomy codebase.** `chotu_core` runs in the ROS 2 node, both on the robot and in Gazebo. `gz_sensor_adapter_node` publishes the same topics as the hardware bridge.
+* **Specs:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (pin map, FSM, algorithms) and [`backend/PROTOCOL.md`](backend/PROTOCOL.md) (every link, from app to MCU).
 
-## 5. Autonomy stack
+## 6. Engineering decisions
 
-```
-UNDOCK ─► SCAN 360° ─► COVER (boustrophedon) ─► SPOT CLEAN / FRONTIER FILL ─► RETURN (A*) ─► DOCKING ─► DOCKED
-                │                │                                ▲
-                └──► STUCK RECOVERY (reverse + VFH escape) ───────┘      time / battery watchdog at every tick
-```
+One design, chosen against the AtomQuest rubric; [the review](docs/ATOMBERG_ENGINEERING_REVIEW.md) gives the evidence and 19 references.
 
-| Module | Technique |
+| Decision | Why |
 |---|---|
-| `kinematics.py` | Diff-drive model, encoder + MPU6050 complementary-filter odometry |
-| `occupancy_grid.py` | 5 cm log-odds grid, 15° ultrasonic cone, wall-echo rejection, camera keep-out zones |
-| `coverage_planner.py` | Serpentine lanes (22 cm spacing for a 24 cm head), coverage tracker, connected-component frontier pockets |
-| `path_planner.py` | 8-connected A\* on a hard/soft two-tier map with an escape disc, string-pulling |
-| `obstacle_avoidance.py` | Echo-to-corridor projection for a round chassis (side walls do not stop it, chair legs ahead do) |
-| `mission_fsm.py` | Explicit transition table. Illegal transitions raise errors and are tested. |
-| `suction_controller.py` | ECO 55 % / BOOST 100 % on debris ahead (fan power ∝ duty^1.5) |
-| `perception.py` | YOLOv8n adapter, pinhole floor projection, mock detector for the sim |
-| `protocol.py` | COBS + CRC16-CCITT framing mirrored in the firmware |
-| `scoring.py` | AtomQuest rubric (weights from the official brief) |
-
-## 6. Simulation and results
-
-`bot_simulation/` is a physics and sensor digital twin. It models noisy sonar cones, ToF, gyro bias, wheel slip, collisions, garbage pick-up probability per type, energy use and a 5 FPS camera. It drives the **real** `CleaningMission`.
-
-| Flow | |
-|---|---|
-| ![start](bot_simulation/simulation_screenshot_screen_recording/01_mission_start_docked.png) | ![scan](bot_simulation/simulation_screenshot_screen_recording/03_mapping_scan_360.png) |
-| 1. Docked, mission start | 2. 360° ToF/ultrasonic mapping scan |
-| ![vision](bot_simulation/simulation_screenshot_screen_recording/07_ai_vision_cable_keepout.png) | ![report](bot_simulation/simulation_screenshot_screen_recording/13_mission_report.png) |
-| 3. YOLO *avoid* → cable keep-out zone | 4. Mission report and AtomQuest rubric |
-
-**All 13 flow-wise screenshots, the full-length real-time recording (`chotu_full_mission_recording.mp4`) and the 4-robot fleet time-lapse are in [`bot_simulation/simulation_screenshot_screen_recording/`](bot_simulation/simulation_screenshot_screen_recording/).**
-
-**Benchmark: 10 randomised rooms with noise on (`record_demo.py`)**
-
-| Metric | AI vision ON | Camera OFF |
-|---|---|---|
-| Returned to dock within 5 min | **10 / 10** | 10 / 10 |
-| Mean coverage of reachable floor | 73.5 % | 79.2 % |
-| Mean debris collected (w/w): dust · hair · paper · wrapper · wire | **80 · 73 · 74 · 68 · 75 %** | 65 · 58 · 55 · 45 · 50 % |
-| Cable incidents (brush tangles) | **1** | 38 |
-| Mean projected AtomQuest score | **78.8** | 63.9 |
-
-The camera trades about 6 points of raw area coverage, spent avoiding cables and detouring to debris, for much higher pick-up by mass and almost no cable tangles. Mass pick-up is what the AtomQuest efficiency criterion scores.
-
-**Robustness, 40 more random rooms** (`benchmark_40_rooms.json`): **40 / 40 docked**, 39 / 40 inside 300 s (one at 308.9 s), mean coverage 70.0 %, 1.15 light collisions per run, 2 cable incidents in total, and a mean projected score of 77.6.
-
-<p align="center"><img src="bot_simulation/simulation_screenshot_screen_recording/benchmark_10_rooms_and_vision_ablation.png" width="95%" alt="benchmark"/></p>
-<p align="center"><img src="bot_simulation/simulation_screenshot_screen_recording/fleet_dashboard_4_robots.png" width="80%" alt="fleet"/></p>
-
-> These are simulator results; the physical v2 robot has not been built yet. `essential_docs/TESTING.md` defines the hardware-in-the-loop and on-floor acceptance tests that will calibrate the twin against the real robot.
+| Keep the owned **Bergmann BAV-60** (≈ 6.5 kPa) | A 7530 blower gives 35–400 Pa, 16–180× too weak; a WPV40 is an air pump, not a vacuum fan |
+| **TB6612FNG** replaces the L298N | ~0.5 V drop instead of ~2 V, a STBY safety cut, the same ₹ |
+| **IRLZ44N** replaces the IRF520 | The IRF520 cannot switch 5 A from 3.3 V logic |
+| **Pi 4 + ESP32-S3** hybrid | Linux for ROS 2 and vision; an MCU for hard real-time control and the safety watchdog |
+| **No VLM, no agent layer** | They earn no rubric points and add latency, cost and an internet dependency. VLM knowledge is distilled into YOLOv8n offline instead. |
+| **Carrier PCB generated from code** | Replaces the loose jumper wiring of v1, and a test keeps it equal to the firmware pin map |
 
 ## 7. Repository structure
 
 ```
 CHOTU/
-├── chotu_core/                    # shared autonomy library (ROS 2 + simulator)
-├── bot_simulation/
-│   ├── chotu_sim/                 # world generator, physics/sensors, HUD + fleet renderer, video
-│   ├── run_simulation.py          # live / headless / benchmark / fleet CLI
-│   ├── record_demo.py             # screenshots + MP4s + charts + metrics
-│   └── simulation_screenshot_screen_recording/
-├── firmware/esp32s3_base_controller/
-│   ├── platformio.ini  include/{pins.h,config.h}  src/main.cpp
-│   ├── lib/chotu_logic/src/chotu_logic.h      # protocol, PID, safety (host-testable)
-│   └── test_host/                              # g++ unit tests (322 checks)
-├── ros2_ws/src/
-│   ├── chotu_interfaces/   chotu_description/   chotu_base/
-│   ├── chotu_navigation/   chotu_perception/    chotu_bringup/   chotu_gazebo/
-├── docker/                        # multi-stage Dockerfile, compose profiles, CycloneDDS, twin image
-├── .devcontainer/                 # VS Code dev container (ROS 2 Humble)
-├── scripts/                       # setup_windows.ps1, setup_wsl_ros2_humble.sh, flash, deploy, run_sim
-├── tests/                         # pytest: unit + end-to-end missions
-├── models/                        # trained YOLO weights (not committed)
-├── .github/workflows/ci.yml       # pytest, host tests, PlatformIO build, colcon build
-└── essential_docs/                # competition documents + project documentation (below)
+├── chotu_core/            shared autonomy library: FSM, mapping, coverage, A*, protocol, scoring
+├── firmware/              ESP32-S3 base controller (PlatformIO) + g++ host tests
+├── ros2_ws/src/           ROS 2 packages: interfaces, description, base, navigation, perception, bringup, gazebo
+├── bot_simulation/        Gazebo Fortress mission recording (screenshots, video, metrics)
+├── mobile_app/            Flutter app, recorder tool, app screenshots and full recording
+├── backend/               FastAPI fleet API, sample data, PostgreSQL migration, tests, protocol spec
+├── hardware/pcb/          carrier PCB: SKiDL source, KiCad netlist, schematic sheets, Protoflow hand-off
+├── bot_3d_printing/       CadQuery model, STL/STEP/DXF, design review, flow PNGs, walkthrough video
+├── docker/                multi-stage ROS 2 images and compose profiles (dev / sim / robot / gpu)
+├── docs/                  architecture, requirements and BOM, setup, configuration, testing, deployment, review
+├── essential_docs/        original AtomQuest 2025 material: problem statement, spec sheet, bills, photos, papers
+├── models/                where the trained YOLO weights go (not committed)
+├── scripts/               Windows setup, WSL ROS install, ESP32 flash, Pi deploy
+├── tests/                 pytest: protocol, kinematics, mapping/planning, behaviour, PCB ↔ firmware
+└── .github/workflows/     CI: core + PCB, backend, Flutter, firmware, ROS 2
 ```
 
 ## 8. Quick start
 
-```powershell
-# Windows 11: digital twin + all tests (Python 3.12)
-powershell -ExecutionPolicy Bypass -File scripts\setup_windows.ps1
-python bot_simulation\run_simulation.py               # live HUD
-python bot_simulation\run_simulation.py --fleet 4     # fleet dashboard
-python bot_simulation\record_demo.py                  # regenerate screenshots + recordings
-```
 ```bash
-# ROS 2 Humble + Gazebo in Docker (nothing installed on the host)
-docker compose -f docker/docker-compose.yml --profile dev build
-docker compose -f docker/docker-compose.yml --profile sim up
-# Robot (Raspberry Pi 4)
-bash scripts/flash_esp32.sh && REGISTRY=ghcr.io/<you> PI_HOST=ubuntu@chotu.local bash scripts/deploy_pi.sh 2.0.0
+git clone https://github.com/Gurjas2112/CHOTU.git && cd CHOTU
+
+# Core library + tests
+pip install -r requirements.txt && pip install -e . && python -m pytest tests -q
+
+# Fleet backend on sample data → http://127.0.0.1:8000 (dashboard), /docs (API)
+pip install -r backend/requirements.txt && cd backend && uvicorn chotu_api.main:app
+
+# Mobile app with the demo robot
+cd mobile_app/chotu_app && flutter pub get && flutter run -d chrome
+
+# Gazebo: the full ROS 2 mission, headless, recorded to bot_simulation/gazebo_recording/
+docker build -f docker/Dockerfile --target dev -t chotu/dev:3.0.0 .
+MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W 2>/dev/null || pwd)":/workspace chotu/dev:3.0.0 \
+    bash /workspace/bot_simulation/gazebo_recording/run_gazebo_recording.sh
+
+# CAD and PCB generators
+pip install -r requirements-dev.txt
+python bot_3d_printing/tools/cad_pipeline.py && python hardware/pcb/chotu_carrier.py
 ```
 
-## 9. Documentation
+[`docs/SETUP.md`](docs/SETUP.md) covers every track, including flashing the ESP32 and deploying to the Pi.
+
+## 9. Quality: tests and CI
+
+| Suite | Count | Command |
+|---|---|---|
+| Core autonomy, protocol, planning, behaviour, PCB ↔ firmware | 32 | `python -m pytest tests -q` |
+| Fleet backend (sample + SQL stores, WebSocket, auth, migration, rosbridge link) | 23 | `python -m pytest backend/tests -q` |
+| Flutter (rosbridge + backend clients, widget flows) | 11 | `flutter analyze && flutter test` |
+| Firmware logic (COBS/CRC16 vectors shared with Python, PID, safety) | 322 | `make -C firmware/esp32s3_base_controller/test_host` |
+| PostgreSQL path, end to end | – | `CHOTU_STORE=sql docker compose -f backend/docker-compose.yml --profile db up` (verified locally) |
+| Gazebo mission | 1 run | `bot_simulation/gazebo_recording/run_gazebo_recording.sh` (verified locally) |
+
+The CI runs five jobs on every push: core + PCB, backend, Flutter, the firmware host tests with a PlatformIO cross-compile, and the ROS 2 colcon build and test.
+
+## 10. Documentation
 
 | Doc | Contents |
 |---|---|
-| [PROJECT_ANALYSIS.md](essential_docs/PROJECT_ANALYSIS.md) | Review of every competition document, v1 to v2 gap analysis, mentor feedback mapping |
-| [ARCHITECTURE.md](essential_docs/ARCHITECTURE.md) | Block diagram, FSM, algorithms, protocol, ESP32 pin map, ROS graph |
-| [HARDWARE_SOFTWARE_REQUIREMENTS.md](essential_docs/HARDWARE_SOFTWARE_REQUIREMENTS.md) | ₹11,480 itemised BOM, special parts, wiring and power domains, software versions |
-| [PROTOTYPE_SPEC.md](essential_docs/PROTOTYPE_SPEC.md) | Updated spec sheet plus the development workstation spec |
-| [SETUP.md](essential_docs/SETUP.md) | Digital twin, ROS 2 (Docker / WSL), robot bring-up |
-| [CONFIGURATION.md](essential_docs/CONFIGURATION.md) | Every tunable parameter, PID tuning, perception, DDS |
-| [TESTING.md](essential_docs/TESTING.md) | L1–L6 test pyramid, HIL bench, acceptance run, CI |
-| [DEPLOYMENT.md](essential_docs/DEPLOYMENT.md) | Versioned images, arm64 buildx, Pi deploy, rollback, competition checklist |
-| [ACHIEVEMENTS.md](essential_docs/ACHIEVEMENTS.md) | Awards, LinkedIn post, photos, competition journey |
-
-## 10. Tech stack and skills demonstrated
-
-**Robotics:** ROS 2 Humble (rclpy, custom msgs/srv, launch, TF2, ros_gz), Gazebo Fortress, URDF/xacro, occupancy-grid mapping, A\*, coverage path planning, differential-drive kinematics, sensor fusion, finite-state machines.
-**Embedded:** ESP32-S3 (Arduino / PlatformIO), ISRs, LEDC PWM, PID control, I²C drivers (VL53L0X, MPU6050), binary protocols (COBS, CRC16), watchdog-based safety.
-**AI / CV:** YOLOv8n fine-tuning (Ultralytics, CUDA on an RTX 3060), NCNN export for the Pi, camera ground-plane projection, VLM-Vac suck/avoid design.
-**Software engineering:** Python, C++17, pytest, g++ host testing, cross-language test vectors, Docker multi-stage and buildx, Compose, dev containers, GitHub Actions, OpenCV visualisation, matplotlib benchmarking.
+| [ATOMBERG_ENGINEERING_REVIEW.md](docs/ATOMBERG_ENGINEERING_REVIEW.md) | What is needed and what is not, with cited sources |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Block diagram, FSM, algorithms, UART protocol, pin map, ROS graph, end-to-end protocols |
+| [HARDWARE_SOFTWARE_REQUIREMENTS.md](docs/HARDWARE_SOFTWARE_REQUIREMENTS.md) | Single BOM (reused / to buy, robu.in links, ₹), wiring, software versions |
+| [PROTOTYPE_SPEC.md](docs/PROTOTYPE_SPEC.md) | Updated spec sheet and development workstation |
+| [SETUP.md](docs/SETUP.md) · [CONFIGURATION.md](docs/CONFIGURATION.md) · [TESTING.md](docs/TESTING.md) · [DEPLOYMENT.md](docs/DEPLOYMENT.md) | Setting up, tuning, verifying and shipping |
+| [PROJECT_ANALYSIS.md](docs/PROJECT_ANALYSIS.md) | Review of the competition documents, and the v1 → v2 → v3 gap analysis |
+| [backend/README.md](backend/README.md) · [backend/PROTOCOL.md](backend/PROTOCOL.md) | Connecting a database, connecting robots, the wire protocol |
+| [hardware/pcb/README.md](hardware/pcb/README.md) · [bot_3d_printing/README.md](bot_3d_printing/README.md) · [mobile_app/README.md](mobile_app/README.md) | PCB, printed body, app |
 
 ## 11. Team and acknowledgements
 
 **Team Hack O' Giants**, PES Modern College of Engineering, Pune: **Gurjas Singh Gandhi**, Joy Johnson Kujur, Sumedh Khedekar, Prathamesh Lohar, Dipali Gode (SY MCA), and Swapnil Kulkarni (Mechanical).
 
-Thanks to **Dr. Tejas Pramod Naik** (COEP Technological University) for mentoring, to the **Atomberg** mentors and leadership team for AtomQuest 2025, and to our teachers at PES MCOE.
+Thanks to **Dr. Tejas Pramod Naik** (COEP Technological University) for mentoring, and to the **Atomberg** mentors and leadership team for AtomQuest 2025.
 
-References: Win & Kyaw, *Autonomous Floor Cleaning Robot with Infrared and Ultrasonic* (IJISRT 2018); CesNieto, *DIY Vacuum Robot* (Instructables); Mirjalili et al., *VLM-Vac: Enhancing Smart Vacuums through VLM Knowledge Distillation and Language-Guided Experience Replay* (arXiv:2409.14096); R. Ramachandran, *The Complete Guide to Docker for ROS 2 (2026 Edition)*.
+**References:**
+* Win & Kyaw, *Autonomous Floor Cleaning Robot with Infrared and Ultrasonic* (IJISRT 2018)
+* CesNieto, *DIY Vacuum Robot* (Instructables)
+* Mirjalili et al., *VLM-Vac* (arXiv:2409.14096)
+* R. Ramachandran, *The Complete Guide to Docker for ROS 2 (2026 Edition)*
+* *3D printing with CadQuery and Claude* (Towards AI)
+
+The engineering review lists all 19 cited sources.
 
 Licensed under the [MIT License](LICENSE).

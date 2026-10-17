@@ -1,0 +1,5 @@
+# No-go zones drawn in the CHOTU Flutter app (replaces the previous set)
+chotu_interfaces/Zone[] no_go
+---
+bool accepted
+string message

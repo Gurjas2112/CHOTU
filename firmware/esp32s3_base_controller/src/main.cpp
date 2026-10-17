@@ -2,7 +2,7 @@
 //
 // Responsibilities (hard real-time, 50 Hz):
 //   * receive cmd_vel / actuator / e-stop frames from the Raspberry Pi 4
-//   * closed-loop wheel speed control (encoders + PID) on the L298N
+//   * closed-loop wheel speed control (encoders + PID) on the TB6612FNG
 //   * read 3 x HC-SR04, VL53L0X ToF, MPU6050 gyro, SW-420 bump, 2 x IR cliff
 //   * enforce the safety layer (watchdog, bump/cliff/front-distance stop)
 //     even if the Pi / ROS 2 stack crashes
@@ -197,7 +197,10 @@ static void serviceLink(uint32_t now_ms) {
     switch (c.id) {
       case MSG_CMD_VEL: g_cmd = c; break;
       case MSG_ACTUATORS: g_suction_pct = c.suction_pct; g_brush_pct = c.brush_pct; break;
-      case MSG_ESTOP: g_safety.set_estop(c.estop != 0); break;
+      case MSG_ESTOP:
+        g_safety.set_estop(c.estop != 0);
+        digitalWrite(PIN_MOTOR_STBY, c.estop ? LOW : HIGH);  // hardware cut via TB6612 STBY
+        break;
       default: break;  // heartbeat only refreshes the watchdog
     }
   }
@@ -222,6 +225,7 @@ static void controlStep(uint32_t now_ms, float dt) {
   if (bump) flags |= FLAG_BUMP;
   if (cliff_l) flags |= FLAG_CLIFF_L;
   if (cliff_r) flags |= FLAG_CLIFF_R;
+  if (digitalRead(PIN_DOCK_IR) == LOW) flags |= FLAG_DOCK_IR;
   const uint16_t front = min(g_us[1].mm, g_tof_mm);
   int16_t w = g_cmd.w_mrad_s;
   const int16_t v = g_safety.limit(g_cmd.v_mm_s, w, now_ms, front, bump, cliff_l || cliff_r, flags);
@@ -273,6 +277,8 @@ static void controlStep(uint32_t now_ms, float dt) {
 // ------------------------------------------------------------------ Arduino
 void setup() {
   Serial.begin(LINK_BAUD);
+  pinMode(PIN_MOTOR_STBY, OUTPUT);
+  digitalWrite(PIN_MOTOR_STBY, LOW);      // driver disabled until set up
   pinMode(PIN_MOTOR_L_IN1, OUTPUT);
   pinMode(PIN_MOTOR_L_IN2, OUTPUT);
   pinMode(PIN_MOTOR_R_IN3, OUTPUT);
@@ -284,6 +290,7 @@ void setup() {
   setMotor(0, 0);
   setMotor(1, 0);
   setActuators(0, 0);
+  digitalWrite(PIN_MOTOR_STBY, HIGH);     // enable TB6612FNG
 
   pinMode(PIN_ENC_L, INPUT_PULLUP);
   pinMode(PIN_ENC_R, INPUT_PULLUP);
@@ -303,20 +310,14 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(PIN_SW420), isrBump, RISING);
   pinMode(PIN_CLIFF_L, INPUT);
   pinMode(PIN_CLIFF_R, INPUT);
-  pinMode(PIN_BUZZER, OUTPUT);
+  pinMode(PIN_DOCK_IR, INPUT_PULLUP);
   analogReadResolution(12);
 
   Wire.begin(PIN_I2C_SDA, PIN_I2C_SCL, 400000);
   setupTof();
   setupImu();
 
-  // two short beeps = ready (IMU calibrated, waiting for the Pi)
-  for (int i = 0; i < 2; ++i) {
-    digitalWrite(PIN_BUZZER, HIGH);
-    delay(60);
-    digitalWrite(PIN_BUZZER, LOW);
-    delay(80);
-  }
+  // ready (IMU calibrated, waiting for the Pi): the Pi relays this to the app
 }
 
 void loop() {

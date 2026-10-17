@@ -1,0 +1,9 @@
+# Workstation tools: CAD pipeline, PCB generation, app recording (Python 3.12)
+-r requirements.txt
+-r backend/requirements.txt
+cadquery==2.8.*
+trimesh>=4
+opencv-python>=4.6
+skidl==3.0.*
+schemdraw>=0.23
+playwright>=1.50

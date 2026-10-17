@@ -1,0 +1,41 @@
+{
+  "sim_time_s": 229.6,
+  "frames": 2297,
+  "screenshots": 7,
+  "docked": true,
+  "final_state": "DOCKED",
+  "coverage_estimate": 0.9793,
+  "waypoints_done": 111,
+  "waypoints_total": 130,
+  "recoveries": 0,
+  "states": [
+    {
+      "t": 0.4,
+      "state": "UNDOCK"
+    },
+    {
+      "t": 3.5,
+      "state": "SCAN"
+    },
+    {
+      "t": 7.5,
+      "state": "COVER"
+    },
+    {
+      "t": 165.5,
+      "state": "SPOT_CLEAN"
+    },
+    {
+      "t": 216.7,
+      "state": "RETURN_TO_DOCK"
+    },
+    {
+      "t": 220.7,
+      "state": "DOCKING"
+    },
+    {
+      "t": 226.5,
+      "state": "DOCKED"
+    }
+  ]
+}

@@ -3,8 +3,10 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
+.mypy_cache/
 .venv/
 venv/
+.env
 
 # ROS 2 / colcon
 ros2_ws/build/
@@ -17,16 +19,33 @@ firmware/**/test_host/test_chotu_logic
 firmware/**/test_host/*.exe
 *.o
 
-# ML artefacts (download / train separately)
+# ML artefacts (download / train separately, see models/README.md)
 runs/
 datasets/
 *.pt
 models/*.onnx
 models/*_ncnn_model/
 
+# Flutter (the app has its own .gitignore too)
+mobile_app/chotu_app/build/
+mobile_app/chotu_app/.dart_tool/
+mobile_app/**/_video_tmp/
+
+# SKiDL / KiCad by-products
+hardware/pcb/*.log
+hardware/pcb/*.erc
+hardware/pcb/*_sklib.py
+skidl_REPL.*
+
+# CAD pipeline temp files
+bot_3d_printing/.cad_pipeline.lock
+*.part.mp4
+
 # OS / editors
 .DS_Store
 Thumbs.db
 desktop.ini
+.idea/
+*.iml
 .vscode/*
 !.vscode/extensions.json

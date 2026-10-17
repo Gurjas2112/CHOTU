@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHOTU Fleet</title>
+<style>
+  :root { --bg:#0b1020; --panel:#141b33; --line:#25305a; --text:#e6ebff; --muted:#8d97c2;
+          --cyan:#22d3ee; --pink:#f472b6; --green:#34d399; --amber:#fbbf24; --red:#f87171; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.45 system-ui,Segoe UI,Roboto,sans-serif; }
+  header { padding:20px 16px 8px; max-width:1200px; margin:auto; display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; }
+  h1 { margin:0; font-size:22px; letter-spacing:.5px; } h1 b { color:var(--cyan); }
+  .tag { color:var(--muted); font-size:12px; }
+  main { max-width:1200px; margin:auto; padding:8px 16px 32px; display:grid; gap:14px; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; min-width:0; }
+  .kpi .v { font-size:24px; font-weight:650; } .kpi .k { color:var(--muted); font-size:12px; }
+  .robots { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; }
+  .robot h3 { margin:0 0 6px; font-size:15px; display:flex; justify-content:space-between; }
+  .state { font-weight:700; color:var(--cyan); } .dot { width:9px; height:9px; border-radius:50%; display:inline-block; background:var(--red); }
+  .dot.on { background:var(--green); }
+  .bar { height:7px; background:var(--line); border-radius:4px; overflow:hidden; margin:4px 0 8px; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,var(--cyan),var(--pink)); }
+  .row { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }
+  .btns { display:flex; gap:6px; margin-top:8px; }
+  button { flex:1; background:transparent; color:var(--text); border:1px solid var(--line); border-radius:8px; padding:6px; cursor:pointer; }
+  button:hover { border-color:var(--cyan); }
+  .scroll { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:13px; min-width:640px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  th { color:var(--muted); font-weight:500; }
+  .ok { color:var(--green); } .bad { color:var(--red); } .warn { color:var(--amber); }
+  footer { color:var(--muted); font-size:12px; text-align:center; padding-bottom:20px; }
+</style>
+</head>
+<body>
+<header><h1><b>CHOTU</b> fleet</h1><span class="tag" id="mode">connecting…</span></header>
+<main>
+  <section class="kpis" id="kpis"></section>
+  <section class="robots" id="robots"></section>
+  <section class="card"><h3 style="margin:0 0 8px">Recent missions</h3>
+    <div class="scroll"><table><thead><tr><th>Mission</th><th>Robot</th><th>Started (UTC)</th><th>Time</th>
+      <th>Coverage</th><th>Debris</th><th>Energy</th><th>Docked</th><th>Score</th></tr></thead>
+      <tbody id="missions"></tbody></table></div></section>
+  <section class="card"><h3 style="margin:0 0 8px">Alerts</h3><div id="alerts"></div></section>
+</main>
+<footer>Demo data: missions are simulated benchmark runs and the live robots replay the Gazebo mission. API docs at <a href="/docs" style="color:var(--cyan)">/docs</a>.</footer>
+<script>
+const key = new URLSearchParams(location.search).get("api_key") || "";
+const hdr = key ? {"X-API-Key": key} : {};
+const api = p => fetch("/api/v1" + p, {headers: hdr}).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pct = x => (100 * x).toFixed(1) + "%";
+
+async function load() {
+  const [health, sum, robots, page, alerts] = await Promise.all([
+    fetch("/healthz").then(r => r.json()), api("/fleet/summary"), api("/robots"),
+    api("/missions?limit=12"), api("/alerts")]);
+  document.getElementById("mode").textContent =
+    `store: ${health.store} · robot link: ${health.robot_link} · protocol v${health.protocol}`;
+  const k = [["Robots", sum.robots], ["Missions", sum.missions], ["Dock success", pct(sum.dock_success_rate)],
+             ["Mean coverage", pct(sum.mean_coverage)], ["Mean score", sum.mean_score.toFixed(1)],
+             ["Debris collected", sum.total_debris_g.toFixed(0) + " g"], ["Open alerts", sum.open_alerts]];
+  document.getElementById("kpis").innerHTML = k.map(([a, b]) =>
+    `<div class="card kpi"><div class="v">${esc(b)}</div><div class="k">${esc(a)}</div></div>`).join("");
+  document.getElementById("missions").innerHTML = page.items.map(m => `<tr><td>${esc(m.id)}</td>
+    <td>${esc(m.robot_id)}</td><td>${esc(m.started_at.replace("T", " ").slice(0, 16))}</td>
+    <td>${m.duration_s.toFixed(0)} s</td><td>${pct(m.coverage)}</td><td>${m.debris_g.toFixed(1)} g</td>
+    <td>${m.energy_wh.toFixed(2)} Wh</td><td class="${m.docked ? "ok" : "bad"}">${m.docked ? "yes" : "no"}</td>
+    <td>${m.score.toFixed(1)}</td></tr>`).join("");
+  document.getElementById("alerts").innerHTML = alerts.map(a => `<div class="row" style="padding:4px 0">
+    <span class="${a.level === "critical" ? "bad" : a.level === "warning" ? "warn" : ""}">${esc(a.title)} · ${esc(a.robot_id)}</span>
+    <span>${a.resolved ? "resolved" : "open"}</span></div>`).join("") || "<span class='tag'>none</span>";
+  const box = document.getElementById("robots");
+  box.innerHTML = robots.map(r => `<div class="card robot" id="r-${esc(r.id)}"><h3>${esc(r.name)}
+    <span class="dot"></span></h3><div><span class="state">–</span></div><div class="bar"><i style="width:0"></i></div>
+    <div class="row"><span class="cov">coverage –</span><span class="bat">battery –</span></div>
+    <div class="row"><span class="pose">pose –</span><span class="suc">suction –</span></div>
+    <div class="btns"><button data-a="start_mission">Clean</button><button data-a="return_to_dock">Dock</button></div></div>`).join("");
+  robots.forEach(r => live(r.id));
+}
+
+function live(id) {
+  const el = document.getElementById("r-" + id);
+  const ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/ws/v1/robots/${encodeURIComponent(id)}` + (key ? `?api_key=${encodeURIComponent(key)}` : ""));
+  let seq = 0;
+  el.querySelectorAll("button").forEach(b => b.onclick = () =>
+    ws.send(JSON.stringify({v: 1, type: "command", robot_id: id, seq: ++seq, ts: new Date().toISOString(),
+                            data: {action: b.dataset.a}})));
+  const draw = t => {
+    if (!t) return;
+    el.querySelector(".state").textContent = t.state;
+    el.querySelector(".bar i").style.width = pct(t.coverage);
+    el.querySelector(".cov").textContent = "coverage " + pct(t.coverage);
+    el.querySelector(".bat").textContent = "battery " + t.battery_pct.toFixed(1) + "%";
+    el.querySelector(".pose").textContent = `pose ${t.pose.x.toFixed(2)}, ${t.pose.y.toFixed(2)} m`;
+    el.querySelector(".suc").textContent = "suction " + t.suction_pct + "%";
+  };
+  ws.onmessage = e => {
+    const m = JSON.parse(e.data);
+    if (m.type === "hello") { el.querySelector(".dot").classList.toggle("on", m.data.online); draw(m.data.telemetry); }
+    if (m.type === "telemetry") { el.querySelector(".dot").classList.add("on"); draw(m.data); }
+  };
+  ws.onclose = () => { el.querySelector(".dot").classList.remove("on"); setTimeout(() => live(id), 3000); };
+}
+load().catch(e => document.getElementById("mode").textContent = "API error: " + e.message);
+</script>
+</body>
+</html>

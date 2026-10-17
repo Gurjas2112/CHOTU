@@ -1,0 +1,34 @@
+[
+  {
+    "id": "chotu-01",
+    "name": "CHOTU 01",
+    "room_id": "atomquest-arena",
+    "firmware": "3.0.0",
+    "software": "3.0.0",
+    "endpoint": "ws://chotu-01.local:9090"
+  },
+  {
+    "id": "chotu-02",
+    "name": "CHOTU 02",
+    "room_id": "lab-a",
+    "firmware": "3.0.0",
+    "software": "3.0.0",
+    "endpoint": "ws://chotu-02.local:9090"
+  },
+  {
+    "id": "chotu-03",
+    "name": "CHOTU 03",
+    "room_id": "hostel-room",
+    "firmware": "3.0.0",
+    "software": "3.0.0",
+    "endpoint": "ws://chotu-03.local:9090"
+  },
+  {
+    "id": "chotu-04",
+    "name": "CHOTU 04",
+    "room_id": "living-room",
+    "firmware": "3.0.0",
+    "software": "3.0.0",
+    "endpoint": "ws://chotu-04.local:9090"
+  }
+]

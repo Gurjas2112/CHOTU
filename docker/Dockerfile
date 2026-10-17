@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
         ros-${ROS_DISTRO}-xacro ros-${ROS_DISTRO}-robot-state-publisher \
         ros-${ROS_DISTRO}-tf2-ros ros-${ROS_DISTRO}-cv-bridge ros-${ROS_DISTRO}-v4l2-camera \
+        ros-${ROS_DISTRO}-rosbridge-server \
     && rm -rf /var/lib/apt/lists/*
 # chotu_core: the hardware-independent autonomy library shared with the simulator
 WORKDIR /opt/chotu/src
@@ -93,10 +94,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python3-pytest gdb git vim less \
         ros-${ROS_DISTRO}-rmw-cyclonedds-cpp ros-${ROS_DISTRO}-ros-gz \
         ros-${ROS_DISTRO}-xacro ros-${ROS_DISTRO}-cv-bridge ros-${ROS_DISTRO}-v4l2-camera \
+        ros-${ROS_DISTRO}-rosbridge-server \
+        xvfb ffmpeg mesa-utils \
     && rm -rf /var/lib/apt/lists/*
 COPY pyproject.toml README.md /opt/chotu/src/
 COPY chotu_core /opt/chotu/src/chotu_core
-RUN pip3 install --no-cache-dir -e /opt/chotu/src matplotlib
+RUN pip3 install --no-cache-dir /opt/chotu/src matplotlib "numpy<2" \
+    && pip3 install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu \
+         "torch==2.4.1+cpu" "torchvision==0.19.1+cpu" "ultralytics==8.3.40" "numpy<2"
 WORKDIR /workspace
 # live-edit chotu_core from the bind-mounted repo instead of the baked copy
 ENV PYTHONPATH=/workspace

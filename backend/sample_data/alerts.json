@@ -1,0 +1,57 @@
+[
+  {
+    "id": "a-0001",
+    "robot_id": "chotu-01",
+    "mission_id": "m-0001",
+    "level": "warning",
+    "code": "BRUSH_TANGLE",
+    "title": "Side brush tangle",
+    "body": "Cable strand caught; brush auto-reversed.",
+    "created_at": "2026-09-01T10:34:44Z",
+    "resolved": true
+  },
+  {
+    "id": "a-0002",
+    "robot_id": "chotu-01",
+    "mission_id": "m-0001",
+    "level": "info",
+    "code": "MANY_RECOVERIES",
+    "title": "Cluttered room",
+    "body": "18 stuck recoveries in one run.",
+    "created_at": "2026-09-01T10:34:44Z",
+    "resolved": true
+  },
+  {
+    "id": "a-0003",
+    "robot_id": "chotu-01",
+    "mission_id": "m-0005",
+    "level": "warning",
+    "code": "BRUSH_TANGLE",
+    "title": "Side brush tangle",
+    "body": "Cable strand caught; brush auto-reversed.",
+    "created_at": "2026-09-02T10:34:02Z",
+    "resolved": true
+  },
+  {
+    "id": "a-0004",
+    "robot_id": "chotu-04",
+    "mission_id": "m-0040",
+    "level": "info",
+    "code": "MANY_RECOVERIES",
+    "title": "Cluttered room",
+    "body": "30 stuck recoveries in one run.",
+    "created_at": "2026-09-10T16:35:08Z",
+    "resolved": true
+  },
+  {
+    "id": "a-0005",
+    "robot_id": "chotu-04",
+    "mission_id": "m-0040",
+    "level": "critical",
+    "code": "BIN_FULL",
+    "title": "Dust bin full",
+    "body": "Empty the 557 mL bin before the next run.",
+    "created_at": "2026-09-10T16:35:08Z",
+    "resolved": false
+  }
+]

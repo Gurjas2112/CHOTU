@@ -6,17 +6,36 @@ on:
   pull_request:
 
 jobs:
-  python-autonomy-and-simulation:
+  python-core-and-pcb:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install -r requirements.txt opencv-python-headless && pip install -e .
+      - run: pip install -r requirements.txt && pip install -e .
+      # autonomy, protocol, mapping/planning, behaviour + PCB-vs-firmware pin check (no SKiDL needed)
       - run: python -m pytest tests -q
-      - run: python bot_simulation/run_simulation.py --benchmark 10 --headless --seed 0 --json benchmark.json
-      - uses: actions/upload-artifact@v4
-        with: { name: benchmark, path: benchmark.json }
+
+  backend:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r backend/requirements.txt
+      - run: python -m pytest backend/tests -q
+
+  mobile-app:
+    runs-on: ubuntu-22.04
+    defaults:
+      run: { working-directory: mobile_app/chotu_app }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: "3.16.9", channel: stable }
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
 
   firmware:
     runs-on: ubuntu-22.04

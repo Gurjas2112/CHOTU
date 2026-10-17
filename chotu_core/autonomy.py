@@ -75,6 +75,7 @@ class CleaningMission:
         self.target_kind = ""
         self.spot_targets: List[Tuple[float, float]] = []
         self.keepouts: List[Detection] = []
+        self.no_go: List[Tuple[float, float, float, float]] = []
         self.events: List[MissionEvent] = []
         self.pose = self.dock.copy()
         self.t = 0.0
@@ -102,6 +103,18 @@ class CleaningMission:
         self.start_t = t
         self.fsm.transition(S.UNDOCK, t, "mission start")
         self._event(t, "state", "Mission start - undocking")
+
+    def add_no_go(self, x0: float, y0: float, x1: float, y1: float) -> None:
+        """User no-go zone (Flutter app -> /chotu/set_zones). Treated like a
+        permanent obstacle: never entered, never planned through, and its
+        floor is excluded from the coverage target."""
+        rect = (min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1))
+        self.no_go.append(rect)
+        self.grid.mark_rect(*rect)
+        self._event(self.t, "state", f"No-go zone set ({rect[2] - rect[0]:.2f} x {rect[3] - rect[1]:.2f} m)")
+
+    def in_no_go(self, x: float, y: float) -> bool:
+        return any(a <= x <= c and b <= y <= d for a, b, c, d in self.no_go)
 
     @property
     def elapsed(self) -> float:
@@ -351,6 +364,13 @@ class CleaningMission:
                 1.5 * math.hypot(self.pose.x - self.dock_approach[0], self.pose.y - self.dock_approach[1])
             self._return_eta = dist / (0.75 * self.cfg.robot.max_linear) + 6.0
         return self.time_left < self._return_eta + self.cfg.mission.return_margin_s
+
+    def request_dock(self, t: float) -> bool:
+        """Operator 'return to dock' (Flutter app button / StartMission abort=true)."""
+        if self.state in (S.UNDOCK, S.SCAN, S.COVER, S.SPOT_CLEAN, S.STUCK_RECOVERY):
+            self._go_home(t, "app request")
+            return True
+        return False
 
     def _go_home(self, t: float, reason: str) -> None:
         if self.state in (S.RETURN_TO_DOCK, S.DOCKING, S.DOCKED):

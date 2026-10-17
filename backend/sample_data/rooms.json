@@ -1,0 +1,46 @@
+[
+  {
+    "id": "atomquest-arena",
+    "name": "AtomQuest arena (10 x 10 ft)",
+    "width_m": 3.048,
+    "height_m": 3.048,
+    "dock": {
+      "x": 1.524,
+      "y": 0.25,
+      "theta": 1.5708
+    }
+  },
+  {
+    "id": "lab-a",
+    "name": "PES MCOE robotics lab",
+    "width_m": 3.048,
+    "height_m": 3.048,
+    "dock": {
+      "x": 1.524,
+      "y": 0.25,
+      "theta": 1.5708
+    }
+  },
+  {
+    "id": "hostel-room",
+    "name": "Hostel room",
+    "width_m": 3.048,
+    "height_m": 3.048,
+    "dock": {
+      "x": 1.524,
+      "y": 0.25,
+      "theta": 1.5708
+    }
+  },
+  {
+    "id": "living-room",
+    "name": "Living room",
+    "width_m": 3.048,
+    "height_m": 3.048,
+    "dock": {
+      "x": 1.524,
+      "y": 0.25,
+      "theta": 1.5708
+    }
+  }
+]

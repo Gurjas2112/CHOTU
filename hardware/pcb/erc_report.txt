@@ -1,0 +1,3 @@
+CHOTU carrier - design-rule check
+parts: 54  nets: 45
+0 errors: every net has >= 2 pins, every firmware signal reaches its GPIO, no strapping/flash/USB pins used.

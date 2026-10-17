@@ -30,6 +30,7 @@ enum Flags : uint8_t {
   FLAG_CLIFF_R = 1 << 2,
   FLAG_ESTOP = 1 << 3,
   FLAG_WATCHDOG = 1 << 4,
+  FLAG_DOCK_IR = 1 << 5,
 };
 
 struct Telemetry {

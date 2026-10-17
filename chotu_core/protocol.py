@@ -34,6 +34,7 @@ FLAG_CLIFF_L = 1 << 1
 FLAG_CLIFF_R = 1 << 2
 FLAG_ESTOP = 1 << 3
 FLAG_WATCHDOG = 1 << 4
+FLAG_DOCK_IR = 1 << 5          # TSOP38238 sees the dock's 38 kHz beacon
 
 
 def crc16_ccitt(data: bytes, crc: int = 0xFFFF) -> int:

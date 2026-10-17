@@ -30,7 +30,7 @@ from chotu_core.mission_fsm import MissionState
 from chotu_core.obstacle_avoidance import RangeReading
 from chotu_core.perception import Detection
 from chotu_interfaces.msg import Actuators, CleaningStatus, DetectionArray
-from chotu_interfaces.srv import StartMission
+from chotu_interfaces.srv import SetZones, StartMission
 
 RANGE_ANGLES = {"left": 35.0, "center": 0.0, "right": -35.0, "tof": 0.0}
 
@@ -78,6 +78,8 @@ class MissionManager(Node):
         latched = QoSProfile(depth=1, durability=QoSDurabilityPolicy.TRANSIENT_LOCAL)
         self.map_pub = self.create_publisher(OccupancyGrid, "map", latched)
         self.create_service(StartMission, "chotu/start_mission", self.on_start)
+        self.create_service(SetZones, "chotu/set_zones", self.on_set_zones)
+        self.no_go = []
 
         self.dt = 1.0 / self.cfg.mission.control_rate_hz
         self.create_timer(self.dt, self.control_tick)
@@ -112,10 +114,9 @@ class MissionManager(Node):
                            for d in msg.detections]
 
     def on_start(self, req, res):
-        if req.abort:
-            if self.started and self.mission.state not in (MissionState.DOCKED, MissionState.ABORTED):
-                self.mission.fsm.transition(MissionState.ABORTED, self.now(), "operator abort")
-            res.accepted, res.message = True, "mission aborted"
+        if req.abort:                      # app "Return to dock": stop cleaning, drive home
+            sent = self.started and self.mission.request_dock(self.now())
+            res.accepted, res.message = True, "returning to dock" if sent else "not cleaning"
             return res
         if self.started and self.mission.state not in (MissionState.DOCKED, MissionState.ABORTED):
             res.accepted, res.message = False, f"already running ({self.mission.state.value})"
@@ -123,10 +124,21 @@ class MissionManager(Node):
         if req.time_budget_s > 0:
             self.cfg = replace(self.cfg, mission=replace(self.cfg.mission, time_budget_s=req.time_budget_s))
         self.mission = CleaningMission(self.cfg)
+        for rect in self.no_go:
+            self.mission.add_no_go(*rect)
         self.mission.start(self.now())
         self.started = True
         res.accepted, res.message = True, "mission started"
         self.get_logger().info("Mission started")
+        return res
+
+    def on_set_zones(self, req, res):
+        self.no_go = [(z.x_min, z.y_min, z.x_max, z.y_max) for z in req.no_go]
+        if self.started and self.mission.state not in (MissionState.DOCKED, MissionState.ABORTED):
+            for rect in self.no_go:          # applies immediately to the running mission
+                self.mission.add_no_go(*rect)
+        res.accepted, res.message = True, f"{len(self.no_go)} no-go zone(s) set"
+        self.get_logger().info(res.message)
         return res
 
     def now(self) -> float:

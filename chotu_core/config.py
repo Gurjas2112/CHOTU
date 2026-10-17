@@ -126,5 +126,5 @@ class ChotuConfig:
 DEFAULT_CONFIG = ChotuConfig()
 
 # Prototype bill of materials for the hybrid Pi 4 + ESP32-S3 build
-# (itemised in essential_docs/HARDWARE_SOFTWARE_REQUIREMENTS.md).
-PROTOTYPE_BOM_INR = 11480
+# (itemised in docs/HARDWARE_SOFTWARE_REQUIREMENTS.md: reused AtomQuest parts + to-buy list).
+PROTOTYPE_BOM_INR = 13693

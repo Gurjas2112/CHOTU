@@ -1,0 +1,29 @@
+[
+  {
+    "id": "z-001",
+    "robot_id": "chotu-01",
+    "label": "Charger cables",
+    "x0": 2.3,
+    "y0": 2.3,
+    "x1": 2.95,
+    "y1": 2.95
+  },
+  {
+    "id": "z-002",
+    "robot_id": "chotu-02",
+    "label": "Soldering bench",
+    "x0": 0.1,
+    "y0": 2.2,
+    "x1": 0.9,
+    "y1": 2.95
+  },
+  {
+    "id": "z-003",
+    "robot_id": "chotu-04",
+    "label": "Pet bowl",
+    "x0": 2.4,
+    "y0": 0.6,
+    "x1": 2.9,
+    "y1": 1.1
+  }
+]

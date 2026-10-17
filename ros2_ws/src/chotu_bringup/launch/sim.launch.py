@@ -22,6 +22,9 @@ def generate_launch_description():
     gz = os.path.join(get_package_share_directory("ros_gz_sim"), "launch", "gz_sim.launch.py")
     sim_time = {"use_sim_time": True}
     return LaunchDescription([
+        # rosbridge = the robot's app API (Flutter app connects to ws://<pi>:9090)
+        Node(package="rosbridge_server", executable="rosbridge_websocket", name="rosbridge",
+             output="screen", parameters=[{"use_sim_time": True}]),
         DeclareLaunchArgument("rviz", default_value="false"),
         DeclareLaunchArgument("vision", default_value="true"),
         IncludeLaunchDescription(PythonLaunchDescriptionSource(gz),

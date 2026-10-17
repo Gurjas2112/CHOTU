@@ -1,6 +1,8 @@
 .git
 essential_docs
-bot_simulation/simulation_screenshot_screen_recording/*.mp4
+**/*.mp4
+mobile_app/chotu_app/build
+mobile_app/chotu_app/.dart_tool
 **/__pycache__
 ros2_ws/build
 ros2_ws/install

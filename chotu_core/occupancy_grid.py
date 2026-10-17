@@ -112,6 +112,17 @@ class OccupancyGrid:
                 self.observed[iy, ix] = True
         self._version += 1
 
+    def mark_rect(self, x0: float, y0: float, x1: float, y1: float) -> None:
+        """Permanent keep-out rectangle (user no-go zone from the app)."""
+        ax, ay = self.world_to_cell(min(x0, x1), min(y0, y1))
+        bx, by = self.world_to_cell(max(x0, x1), max(y0, y1))
+        ax, ay = max(0, ax), max(0, ay)
+        bx, by = min(self.nx - 1, bx), min(self.ny - 1, by)
+        if ax <= bx and ay <= by:
+            self.logodds[ay:by + 1, ax:bx + 1] = KEEPOUT
+            self.observed[ay:by + 1, ax:bx + 1] = True
+            self._version += 1
+
     # ------------------------------------------------------------- queries
     def occupied_mask(self) -> np.ndarray:
         return self.logodds > OCC_THRESHOLD
