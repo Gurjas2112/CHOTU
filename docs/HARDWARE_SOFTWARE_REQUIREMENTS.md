@@ -1,6 +1,6 @@
 # Hardware and Software Requirements (v3)
 
-> **One design.** CHOTU v3 is a Raspberry Pi 4 + ESP32-S3 hybrid. It reuses every part the team bought for AtomQuest 2025 that is still fit for purpose; see `essential_docs/Atomquest_bot_cost_sheet.xlsx` and `essential_docs/AtomQuest2025_HackOGiants_PESMCOE_Essential_component_bills/`. The BOM has no alternatives or "optional" rows. The reasons for each choice, with sources, are in [ATOMBERG_ENGINEERING_REVIEW.md](ATOMBERG_ENGINEERING_REVIEW.md).
+> **One design.** CHOTU v3 is a Raspberry Pi 4 + ESP32-S3 hybrid. It reuses every part the team bought for AtomQuest 2025 that is still fit for purpose; see `old_essential_docs/Atomquest_bot_cost_sheet.xlsx` and `old_essential_docs/AtomQuest2025_HackOGiants_PESMCOE_Essential_component_bills/`. The BOM has no alternatives or "optional" rows. The reasons for each choice, with sources, are in [ATOMBERG_ENGINEERING_REVIEW.md](ATOMBERG_ENGINEERING_REVIEW.md).
 >
 > **Status:** prototype on demo data. Nothing in the *to buy* column has been purchased yet. Prices are INR, taken from robu.in product pages and the team's own bills. Check them again when ordering.
 

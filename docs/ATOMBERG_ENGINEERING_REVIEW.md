@@ -6,7 +6,7 @@
 
 ## 1. From the problem statement to each decision
 
-The AtomQuest 2025 Round 3 rubric (`essential_docs/Atomquest 2025 Round 3.pdf`) awards points for **time 20, efficiency per garbage type 25, autonomy and avoidance 20, battery 15, container 10, aesthetics 5, cost 5**. A part or a feature earns its place only if it moves one of those numbers, or if it is needed to finish the run (start at the dock and return to it within 5 minutes).
+The AtomQuest 2025 Round 3 rubric (`old_essential_docs/Atomquest 2025 Round 3.pdf`) awards points for **time 20, efficiency per garbage type 25, autonomy and avoidance 20, battery 15, container 10, aesthetics 5, cost 5**. A part or a feature earns its place only if it moves one of those numbers, or if it is needed to finish the run (start at the dock and return to it within 5 minutes).
 
 | Rubric item | What moves it | v3 decision |
 |---|---|---|

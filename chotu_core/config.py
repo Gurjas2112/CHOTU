@@ -1,7 +1,7 @@
 """Central configuration for CHOTU.
 
 Every number here is traceable to the AtomQuest 2025 documents in
-``essential_docs`` (spec sheet, finale pitch, Round 3 rules, cost sheet) or
+``old_essential_docs`` (spec sheet, finale pitch, Round 3 rules, cost sheet) or
 to the datasheets of the parts listed in the BOM.  ROS 2 nodes load the same
 dataclasses and override fields from ``chotu_bringup/config/chotu_params.yaml``.
 """

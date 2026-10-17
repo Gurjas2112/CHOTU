@@ -7,7 +7,7 @@ Dataset layout (YOLO format) - see chotu_suck_avoid.yaml:
 
 Collect frames with the robot camera at 16 cm height / 28 deg tilt (the same
 pose CameraModel assumes), label with Roboflow / CVAT / Label Studio.  For
-bootstrapping, the VLM-Vac approach (essential_docs/essential_research_paper_docs)
+bootstrapping, the VLM-Vac approach (old_essential_docs/essential_research_paper_docs)
 can pre-label frames with a vision-language model and you correct them.
 
 Usage:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """CHOTU carrier PCB - single source of truth for the base-controller wiring.
 
-Replaces the breadboard + jumper wiring of `essential_docs/Bot_circuit_diagram.jpg`
+Replaces the breadboard + jumper wiring of `old_essential_docs/Bot_circuit_diagram.jpg`
 and `bot_connection_schema.jpeg` with one 2-layer board (90 x 65 mm) that the
 ESP32-S3-DevKitC-1 plugs into. Pin assignment == firmware/.../include/pins.h
 (checked by tests/test_pcb_netlist.py).

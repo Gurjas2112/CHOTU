@@ -1,5 +1,5 @@
 .git
-essential_docs
+old_essential_docs
 **/*.mp4
 mobile_app/chotu_app/build
 mobile_app/chotu_app/.dart_tool

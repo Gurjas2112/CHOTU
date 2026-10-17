@@ -1,6 +1,6 @@
 """AI vision: "suck vs avoid" object classification (VLM-Vac inspired).
 
-The VLM-Vac paper (essential_docs/essential_research_paper_docs) fine-tunes
+The VLM-Vac paper (old_essential_docs/essential_research_paper_docs) fine-tunes
 YOLOv8n on two *actionable* classes - things to vacuum and things to avoid.
 CHOTU follows the same idea:
 

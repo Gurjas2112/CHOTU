@@ -1,6 +1,6 @@
 # CHOTU carrier PCB: firmware connection schematic
 
-A 2-layer, 90 × 65 mm carrier board for the **ESP32-S3-DevKitC-1**. It replaces the breadboard and jumper wiring of the AtomQuest build (`essential_docs/Bot_circuit_diagram.jpg`, `bot_connection_schema.jpeg`). Every GPIO matches the firmware's `firmware/esp32s3_base_controller/include/pins.h`, and **`tests/test_pcb_netlist.py` fails if they ever differ.**
+A 2-layer, 90 × 65 mm carrier board for the **ESP32-S3-DevKitC-1**. It replaces the breadboard and jumper wiring of the AtomQuest build (`old_essential_docs/Bot_circuit_diagram.jpg`, `bot_connection_schema.jpeg`). Every GPIO matches the firmware's `firmware/esp32s3_base_controller/include/pins.h`, and **`tests/test_pcb_netlist.py` fails if they ever differ.**
 
 <p align="center"><img src="schematic/00_overview.png" width="90%" alt="Connection overview"/></p>
 

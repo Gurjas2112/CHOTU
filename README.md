@@ -108,8 +108,8 @@ All media below comes from demo data or simulation.
 ## 4. Achievements
 
 <p align="center">
-  <img src="essential_docs/achievement_pics/pic2.jpeg" height="260" alt="Team Hack O' Giants with CHOTU at the AtomQuest 2025 Grand Finale"/>
-  <img src="essential_docs/achievement_pics/pic1.jpeg" height="260" alt="Certificate of achievement and medal"/>
+  <img src="old_essential_docs/achievement_pics/pic2.jpeg" height="260" alt="Team Hack O' Giants with CHOTU at the AtomQuest 2025 Grand Finale"/>
+  <img src="old_essential_docs/achievement_pics/pic1.jpeg" height="260" alt="Certificate of achievement and medal"/>
 </p>
 
 * 🏆 **People's Choice Award**: the audience-favourite innovation at the AtomQuest 2025 Grand Finale, held at Atomberg's Innovation Center
@@ -175,7 +175,7 @@ CHOTU/
 ├── bot_3d_printing/       CadQuery model, STL/STEP/DXF, design review, flow PNGs, walkthrough video
 ├── docker/                multi-stage ROS 2 images and compose profiles (dev / sim / robot / gpu)
 ├── docs/                  architecture, requirements and BOM, setup, configuration, testing, deployment, review
-├── essential_docs/        original AtomQuest 2025 material: problem statement, spec sheet, bills, photos, papers
+├── old_essential_docs/        original AtomQuest 2025 material: problem statement, spec sheet, bills, photos, papers
 ├── models/                where the trained YOLO weights go (not committed)
 ├── scripts/               Windows setup, WSL ROS install, ESP32 flash, Pi deploy
 ├── tests/                 pytest: protocol, kinematics, mapping/planning, behaviour, PCB ↔ firmware

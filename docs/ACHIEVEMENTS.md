@@ -35,9 +35,9 @@ Team **Hack O' Giants** (PES Modern College of Engineering, Pune) took **CHOTU**
 
 | | |
 |---|---|
-| ![Certificate, medal and finalist kit](../essential_docs/achievement_pics/pic1.jpeg) | ![Team with CHOTU at the Grand Finale](../essential_docs/achievement_pics/pic2.jpeg) |
+| ![Certificate, medal and finalist kit](../old_essential_docs/achievement_pics/pic1.jpeg) | ![Team with CHOTU at the Grand Finale](../old_essential_docs/achievement_pics/pic2.jpeg) |
 | Certificate of Achievement (Top 10), medal, finalist badge and kit | Team Hack O' Giants with CHOTU at the AtomQuest 2025 Grand Finale |
-| ![At the Atomberg Innovation Center](../essential_docs/achievement_pics/pic3.jpeg) | ![Finalists on stage](../essential_docs/achievement_pics/pic4.jpeg) |
+| ![At the Atomberg Innovation Center](../old_essential_docs/achievement_pics/pic3.jpeg) | ![Finalists on stage](../old_essential_docs/achievement_pics/pic4.jpeg) |
 | At the Atomberg Innovation Center (AIC tour) | Finalists at the AtomQuest 2025 stage |
 
 ## Competition journey

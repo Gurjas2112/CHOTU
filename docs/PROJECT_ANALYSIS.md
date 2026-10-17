@@ -1,6 +1,6 @@
 # CHOTU: Project Analysis and Autonomy Upgrade Plan
 
-> **Scope.** This file reviews every document in `essential_docs/`, records what the December 2025 AtomQuest prototype actually was, and explains how the gaps were turned into the autonomous v2 stack and then the v3 design in this repository (§6).
+> **Scope.** This file reviews every document in `old_essential_docs/`, records what the December 2025 AtomQuest prototype actually was, and explains how the gaps were turned into the autonomous v2 stack and then the v3 design in this repository (§6).
 
 ---
 
