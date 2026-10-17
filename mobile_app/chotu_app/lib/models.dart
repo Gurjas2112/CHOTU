@@ -55,8 +55,8 @@ class RobotStatus {
     this.timeLeft = 300,
     this.coverage = 0,
     this.battery = 1,
-    this.binFill = 0.12,
-    this.brushHealth = 0.96,
+    this.binFill,
+    this.brushHealth,
     this.suctionMode = 'OFF',
     this.suctionDuty = 0,
     this.safety = 'clear',
@@ -69,8 +69,10 @@ class RobotStatus {
   final double timeLeft;
   final double coverage;
   final double battery;
-  final double binFill;
-  final double brushHealth;
+  /// Not reported by the robot's CleaningStatus (no bin-level or brush-wear sensor yet):
+  /// null = not measured. Only the demo robot fills these in.
+  final double? binFill;
+  final double? brushHealth;
   final String suctionMode;
   final double suctionDuty;
   final String safety;

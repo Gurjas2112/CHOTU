@@ -112,9 +112,9 @@ class HomeScreen extends StatelessWidget {
                 StatTile(
                     icon: Icons.delete_outline_rounded,
                     label: 'DUST BIN',
-                    value: '${(s.binFill * 100).toStringAsFixed(0)} %',
-                    fraction: s.binFill,
-                    color: s.binFill > 0.7 ? C.amber : C.cyan),
+                    value: _pct(s.binFill),
+                    fraction: s.binFill ?? 0,
+                    color: (s.binFill ?? 0) > 0.7 ? C.amber : C.cyan),
                 StatTile(
                     icon: Icons.air_rounded,
                     label: 'SUCTION',
@@ -124,8 +124,8 @@ class HomeScreen extends StatelessWidget {
                 StatTile(
                     icon: Icons.cyclone_rounded,
                     label: 'SIDE BRUSH',
-                    value: '${(s.brushHealth * 100).toStringAsFixed(0)} %',
-                    fraction: s.brushHealth,
+                    value: _pct(s.brushHealth),
+                    fraction: s.brushHealth ?? 0,
                     color: C.amber),
               ],
             ),
@@ -151,3 +151,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+/// '–' when the robot does not measure the value (real robot: bin level, brush wear).
+String _pct(double? v) => v == null ? '–' : '${(v * 100).toStringAsFixed(0)} %';

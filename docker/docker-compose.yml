@@ -57,10 +57,11 @@ services:
     environment:
       <<: *ros-env
     devices:                     # explicit hardware contract - no --privileged
-      - /dev/ttyUSB0:/dev/ttyUSB0   # ESP32-S3 base controller
+      - ${CHOTU_ESP32_PORT:-/dev/ttyUSB0}:/dev/ttyUSB0   # ESP32-S3 base controller (udev symlink /dev/chotu_esp32 recommended)
       - /dev/video0:/dev/video0     # Pi camera (libcamera v4l2 compat) / USB webcam
     group_add: [dialout, video]
-    command: ["ros2", "launch", "chotu_bringup", "robot.launch.py", "vision:=false", "auto_start:=false"]
+    # camera driver runs here, YOLO runs in the perception container below
+    command: ["ros2", "launch", "chotu_bringup", "robot.launch.py", "vision:=false", "camera:=true", "auto_start:=false"]
 
   perception:
     profiles: ["robot", "gpu"]
@@ -72,3 +73,9 @@ services:
       <<: *ros-env
     volumes:
       - ../models:/opt/chotu/models:ro
+    # Pi 4: NCNN export (CPU). On the RTX 3060 (gpu profile) set CHOTU_YOLO_WEIGHTS=.../chotu_suck_avoid_yolov8n.pt
+    # and CHOTU_YOLO_DEVICE=0.
+    command: ["ros2", "run", "chotu_perception", "yolo_detector_node", "--ros-args",
+              "--params-file", "/opt/chotu/install/share/chotu_bringup/config/chotu_params.yaml",
+              "-p", "weights:=${CHOTU_YOLO_WEIGHTS:-/opt/chotu/models/chotu_suck_avoid_yolov8n_ncnn_model}",
+              "-p", "device:=${CHOTU_YOLO_DEVICE:-cpu}"]

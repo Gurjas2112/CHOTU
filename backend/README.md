@@ -9,6 +9,7 @@ FastAPI service for **mission history, schedules, no-go zones, alerts and live t
 | API | REST `/api/v1/*` + WebSocket `/ws/v1/robots/{id}`. OpenAPI docs at `/docs`. |
 | Dashboard | `/`: one static page that renders the API, with live robot cards over the WebSocket |
 | Protocol | [PROTOCOL.md](PROTOCOL.md): every link from app to backend to robot to MCU |
+| Real robot | [REAL_ROBOT_INTEGRATION.md](REAL_ROBOT_INTEGRATION.md): step by step from printed parts to stored mission data (connection verified against the Gazebo robot) |
 | Stores | `sample` (in-memory, from `sample_data/*.json`) or `sql` (SQLAlchemy: PostgreSQL in production, SQLite in tests) |
 | Robot link | `demo` (replays the Gazebo mission) or `rosbridge` (connects to each robot's `ws://<pi>:9090`) |
 | Tests | `python -m pytest backend/tests -q`: 23 tests covering both stores, the WebSocket, auth, the migration and a fake rosbridge |
@@ -100,6 +101,8 @@ CHOTU_STORE=sql uvicorn chotu_api.main:app
 Routers depend only on `repositories.base.Repository`. `CHOTU_STORE` selects `SampleRepository` or `SqlRepository` at start-up (`repositories/__init__.py`). Responses are identical. The test suite runs every API test against both stores to prove it.
 
 ## 3. Connect real robots
+
+The full procedure (hardware, firmware, Pi, Docker, YOLO, Gazebo rehearsal, storage) is [REAL_ROBOT_INTEGRATION.md](REAL_ROBOT_INTEGRATION.md). The backend part:
 
 ```bash
 CHOTU_ROBOT_LINK=rosbridge uvicorn chotu_api.main:app

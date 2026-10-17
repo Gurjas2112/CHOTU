@@ -146,7 +146,8 @@ class DemoRobotRepository extends RobotRepository {
   @override
   Future<void> connect() async {
     await Future<void>.delayed(const Duration(milliseconds: 600));
-    status = status.copyWith(connected: true, lastEvent: 'Connected to $robotName (demo data)');
+    status = status.copyWith(
+        connected: true, binFill: 0.12, brushHealth: 0.96, lastEvent: 'Connected to $robotName (demo data)');
     _timer ??= Timer.periodic(const Duration(milliseconds: _tickMs), (_) => _tick());
     notifyListeners();
   }

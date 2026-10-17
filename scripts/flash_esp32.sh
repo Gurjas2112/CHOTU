@@ -12,4 +12,4 @@ if [ $# -ge 1 ]; then
 else
   pio run -e esp32s3 -t upload
 fi
-echo "Flashed. Two short beeps = IMU calibrated and waiting for the Raspberry Pi."
+echo "Flashed. Keep the robot still on the dock for ~1 s at power-on (gyro calibration)."

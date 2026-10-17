@@ -18,6 +18,8 @@ Controls one CHOTU robot. It talks directly to the robot's **rosbridge** (`ws://
 | Alerts (bin full, brush tangle, stuck) | status events |
 | Schedules, history, mission report with the AtomQuest rubric | local, or the backend with `BACKEND_URL` |
 
+**Real robot:** [REAL_ROBOT_CONNECTION.md](REAL_ROBOT_CONNECTION.md) explains how to build, connect and control, and what is stored where. It was verified against the Gazebo robot's rosbridge.
+
 ## Code
 
 ```

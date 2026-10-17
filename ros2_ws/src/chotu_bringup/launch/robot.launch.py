@@ -1,7 +1,8 @@
 """Real robot bring-up on the Raspberry Pi 4.
 
     ros2 launch chotu_bringup robot.launch.py                 # base + mission + vision
-    ros2 launch chotu_bringup robot.launch.py vision:=false   # without YOLO
+    ros2 launch chotu_bringup robot.launch.py vision:=false   # YOLO runs elsewhere (perception container)
+    ros2 launch chotu_bringup robot.launch.py camera:=false   # no camera at all
     ros2 service call /chotu/start_mission chotu_interfaces/srv/StartMission "{abort: false}"
 """
 import os
@@ -25,7 +26,8 @@ def generate_launch_description():
         Node(package="rosbridge_server", executable="rosbridge_websocket", name="rosbridge",
              output="screen"),
         DeclareLaunchArgument("port", default_value="/dev/ttyUSB0"),
-        DeclareLaunchArgument("vision", default_value="true"),
+        DeclareLaunchArgument("vision", default_value="true"),    # YOLO detector node in this process
+        DeclareLaunchArgument("camera", default_value="true"),    # camera driver (YOLO input), independent of vision
         DeclareLaunchArgument("auto_start", default_value="false"),
         IncludeLaunchDescription(PythonLaunchDescriptionSource(desc)),
         Node(package="chotu_base", executable="serial_bridge_node", name="chotu_serial_bridge",
@@ -37,5 +39,5 @@ def generate_launch_description():
         Node(package="v4l2_camera", executable="v4l2_camera_node", name="camera",
              parameters=[{"image_size": [640, 480], "video_device": "/dev/video0"}],
              remappings=[("image_raw", "camera/image_raw")],
-             condition=IfCondition(LaunchConfiguration("vision"))),
+             condition=IfCondition(LaunchConfiguration("camera"))),
     ])

@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Release builds talk to the robot (ws://<pi>:9090) and the fleet backend over the network -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="chotu_app"
+        android:label="CHOTU"
+        android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

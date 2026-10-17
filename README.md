@@ -232,6 +232,7 @@ The CI runs five jobs on every push: core + PCB, backend, Flutter, the firmware 
 | [SETUP.md](docs/SETUP.md) · [CONFIGURATION.md](docs/CONFIGURATION.md) · [TESTING.md](docs/TESTING.md) · [DEPLOYMENT.md](docs/DEPLOYMENT.md) | Setting up, tuning, verifying and shipping |
 | [PROJECT_ANALYSIS.md](docs/PROJECT_ANALYSIS.md) | Review of the competition documents, and the v1 → v2 → v3 gap analysis |
 | [backend/README.md](backend/README.md) · [backend/PROTOCOL.md](backend/PROTOCOL.md) | Connecting a database, connecting robots, the wire protocol |
+| [backend/REAL_ROBOT_INTEGRATION.md](backend/REAL_ROBOT_INTEGRATION.md) · [mobile_app/REAL_ROBOT_CONNECTION.md](mobile_app/REAL_ROBOT_CONNECTION.md) | Real robot, step by step: mechanical → electronics → firmware → Pi + Docker → YOLO → Gazebo rehearsal → connection → data retrieval and storage |
 | [hardware/pcb/README.md](hardware/pcb/README.md) · [bot_3d_printing/README.md](bot_3d_printing/README.md) · [mobile_app/README.md](mobile_app/README.md) | PCB, printed body, app |
 
 ## 11. Team and acknowledgements

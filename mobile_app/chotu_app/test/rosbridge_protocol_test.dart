@@ -36,7 +36,7 @@ void main() {
     expect(s.state, MissionState.returnToDock);
     expect(s.coverage, 0.73);
     expect(s.connected, isTrue);
-    expect(s.binFill, const RobotStatus().binFill); // app-side field kept
+    expect(s.binFill, isNull); // not in CleaningStatus: a real robot shows '–', never a made-up value
   });
 
   test('subscribe adds throttle only when requested', () {

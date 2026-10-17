@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Build the arm64 runtime image on the workstation, push it to a registry and
 # start it on the Raspberry Pi 4 over SSH (versioned - never :latest).
-#   REGISTRY=ghcr.io/<user> PI_HOST=pi@chotu.local bash scripts/deploy_pi.sh 2.0.0
+#   REGISTRY=ghcr.io/<user> PI_HOST=pi@chotu.local bash scripts/deploy_pi.sh 3.0.0
 set -euo pipefail
-VERSION="${1:-2.0.0}"
+VERSION="${1:-3.0.0}"
 : "${REGISTRY:?set REGISTRY, e.g. ghcr.io/<github-user>}"
 : "${PI_HOST:?set PI_HOST, e.g. pi@chotu.local}"
 cd "$(dirname "$0")/.."
